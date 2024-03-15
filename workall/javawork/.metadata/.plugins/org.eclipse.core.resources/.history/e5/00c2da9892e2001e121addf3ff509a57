@@ -1,0 +1,24 @@
+package day0315;
+
+import java.util.Scanner;
+
+public class Ex8munje {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String name, hp, birthday;
+		System.out.println("이름은?");
+		name = sc.nextLine();
+		System.out.println("핸드폰번호는?");
+		hp = sc.nextLine();
+		System.out.println("생일은?");
+		birthday = sc.nextLine();
+		
+		System.out.println(name);
+		System.out.println(hp);
+		System.out.println(birthday);
+
+	}
+
+}
