@@ -1,0 +1,18 @@
+package day0318;
+
+public class Ex2Acicode {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//char은 내부적으로 int 타입 인식
+		char a = 'A';
+		char b = 65; //아스키코드로 문자 'a'
+		System.out.println(a);
+		System.out.println(b);
+		System.out.println(a+","+b);
+		System.out.printf("a=%d,%c\n",(int)a,a);
+		System.out.printf("a=%d,%c\n",(int)b,b);
+		System.out.println(a+3);
+	}
+
+}

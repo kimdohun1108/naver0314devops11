@@ -7,7 +7,7 @@ public class Ex11Operator {
 		// 증감연산자
 		// 전치일경우 1순위, 후치일경우 끝순위
 		
-		int m, n = 5;
+		int m = 0, n = 5;
 		int a, b = 10;
 		++m;
 		n++;

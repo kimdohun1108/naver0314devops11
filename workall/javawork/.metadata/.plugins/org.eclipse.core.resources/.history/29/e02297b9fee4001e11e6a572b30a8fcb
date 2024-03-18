@@ -1,0 +1,22 @@
+package day0318;
+
+import java.util.Scanner;
+
+public class Ex14munje {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int sum = 0, i;
+		for(i=0;i<5;i++)
+		{
+			System.out.println("점수는?");
+			sum = sc.nextInt();
+			sum += sum;
+		}
+		System.out.printf("입력한 점수 갯수 : %d\n",i);
+		System.out.println("총 합계 : %d\n",sum);
+
+	}
+
+}

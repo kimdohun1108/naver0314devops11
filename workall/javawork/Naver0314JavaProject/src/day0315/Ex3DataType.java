@@ -20,8 +20,8 @@ public class Ex3DataType {
 		/* printf는 변환기호를 이용하여 출력
 		 * 정수 %d, 실수 %f, 문자 %c, 문자열 %s
 		 */
-		System.out.printf("**%40s**\n\n",msg); // 40칸 우측기준
-		System.out.printf("**%-40s**\n\n",msg); // 40칸 좌측기준
+		System.out.printf("**%20s**\n\n",msg); // 40칸 우측기준
+		System.out.printf("**%-20s**\n\n",msg); // 40칸 좌측기준
 		System.out.printf("%s\n",msg);
 		System.out.printf("날짜 : %d-%d-%d\n",year,month,day);// 2024-3-15
 		System.out.printf("날짜 : %2d-%2d-%2d\n",year,month,day);// 2024- 3-15 (공백)
