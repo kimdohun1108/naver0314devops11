@@ -1,0 +1,41 @@
+package day0319;
+
+import java.util.Scanner;
+
+public class Ex11Stringmunje {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//65~90 대 97~122
+		Scanner sc = new Scanner(System.in);
+		String msg;
+		int A = 0, B = 0, C = 0;
+		System.out.println("문자 입력 : ");
+		msg = sc.nextLine();
+		
+		for(int i=0;i<msg.length();i++)
+		{
+			//i번지 인덱스 의 문자 얻기
+			char ch = msg.charAt(i);
+			
+			if(ch>='a' && ch<='z')
+				A++;
+			else if(ch>='A' && ch<='Z')
+				B++;
+			else if(ch>='0' && ch<='9')
+				C++;
+		}
+		System.out.println("대문자 개수 : "+B);
+		System.out.println("소문자 개수 : "+A);
+		System.out.println("숫자 개수 : "+C);
+	}
+
+}
+//if(msg.length()>64 || msg.length()<91)
+//{
+//	A++;
+//}
+//if(msg.length()>96 || msg.length()<123)
+//{
+//	B++;
+//}
