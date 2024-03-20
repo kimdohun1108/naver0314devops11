@@ -1,0 +1,28 @@
+package day0320;
+
+import java.util.Scanner;
+
+public class Ex11ArrayRank {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int score[]= {100,90,80,70,120};
+		int rank[] = new int[5];
+		for(int i=0;i<score.length;i++)
+		{
+			rank[i] = 1;
+			for(int j=0;j<score.length;j++)
+			{//0:90 1:100
+				if(score[i]<score[j])
+				{
+					rank[i] += 1;
+				}
+			}
+		}
+		for(int i=0;i<5;i++)
+		{
+			System.out.printf("%d\n",rank[i]);
+		}
+	}
+
+}

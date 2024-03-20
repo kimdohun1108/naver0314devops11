@@ -1,0 +1,58 @@
+package day0320;
+
+import java.util.Scanner;
+
+public class Ex12Arraymunje {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub	
+		Scanner sc = new Scanner(System.in);
+		String[] name= null;
+		int kor[]= null;
+		int eng[]= null;
+		int inwon[]= null;
+		int rank[]= null;
+		int avg[] = null;
+		int count = 0;
+		System.out.println("인원수 : ");
+		count = sc.nextInt();
+		inwon = new int[count];
+		for(int i=0;i<inwon.length;i++)
+		{
+			name = new String[i];
+			kor = new int[i];
+			eng = new int[i];
+			System.out.println("이름 : ,국어 : ,영어 : ");
+			name[i] = sc.next();
+			kor[i] = sc.nextInt();
+			eng[i] = sc.nextInt();
+		}
+		for(int i=0;i<name.length;i++)
+		{
+			avg = new int[i];
+			avg[i] = kor[i] + eng[i];
+		}
+		for(int i=0;i<avg.length;i++)
+		{
+			rank = new int[i];
+			rank[i] = 1;
+			for(int j=0;j<avg.length;j++)
+			{//0:90 1:100
+				if(avg[i]<avg[j])
+				{
+					rank[i] += 1;
+				}
+			}
+		}
+		System.out.println("=".repeat(50));
+		System.out.println("번호\t이름\t국어\t영어\t등수");
+		System.out.println("=".repeat(50));
+		for(int i=1;i<inwon.length;i++)
+		{
+			System.out.printf("%d\t%s\t%d\t%d\t%d",i,name[i],kor[i],eng[i],avg[i],rank[i]);
+			System.out.println();
+		}
+		
+	}
+
+}

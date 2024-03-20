@@ -1,0 +1,41 @@
+package day0320;
+
+import java.util.Scanner;
+
+public class Ex8ArraySearchNum {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		int num, sreachIndex = -1;
+		int date[] = {12,3,6,1,7,10,8,5,16,19};
+		for(int i=0;i<i+1;i++)
+		{
+			System.out.println("검색할 숫자 입력(종료:0) : ");
+			num = sc.nextInt();
+			if(num==0)
+			{
+				System.out.println("검색을 종료합니다");
+				break;
+			}
+			for(int j=0;j<date.length;j++)
+			{
+				if(num==date[j])
+				{
+					sreachIndex = j;
+					break;
+				}
+			}
+			if(sreachIndex==-1)
+			{
+				System.out.println("\t"+num+"은 데이터에 없습니다.");
+			}
+			else 
+			{
+				System.out.println("\t"+num+" 은 "+(sreachIndex+1)+"번째 있습니다.");
+			}
+			System.out.println();
+		}
+	}
+
+}
