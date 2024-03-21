@@ -1,0 +1,79 @@
+package day0321;
+
+import java.util.Scanner;
+
+public class book199p_9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc =new Scanner(System.in);
+		int n;
+		int num =0;
+		int score[] = new int[3];
+		while(n>0 && n<6)
+		{
+			System.out.println("=".repeat(50));
+			System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
+			System.out.println("=".repeat(50));
+			n = sc.nextInt();
+			if(n==1)
+			{
+				System.out.println("선택> 1");
+				System.out.print("학생수>");
+				num = sc.nextInt();
+				continue;
+			}
+			else if(n==2)
+			{
+				System.out.println("선택> 2");
+				for(int i=0;i<num;i++)
+				{
+					System.out.printf("score[%d]>",i);
+					score[i] = sc.nextInt();
+					System.out.println();
+				}
+				continue;
+			}
+			else if(n==3)
+			{
+				System.out.println("선택> 3");
+				for(int i=0;i<num;i++)
+				{
+					System.out.printf("score[%d]: %d >",i,score[i]);
+					System.out.println();
+				}
+				continue;
+			}
+			else if(n==4)
+			{
+				System.out.println("선택> 4");
+				double avg = 0.0;
+				for(int j=0;j<num;j++)
+				{
+					avg += score[j];
+				}
+				for(int i=0;i<num;i++)
+				{
+					if(score[i]<score[i+1])
+					{
+						int temp = score[i+1];
+						score[i+1] = score[i];
+						score[i] = temp;
+					}
+				}
+				System.out.printf("최고 점수: %d",score[0]);
+				System.out.println();
+				System.out.printf("평균 점수: %f",avg);
+				continue;
+			}
+			else if(n==5)
+			{
+				System.out.println("선택> 5");
+				System.out.println("프로그램 종료");
+				break;
+			}
+		}
+
+	}
+
+}

@@ -1,0 +1,38 @@
+package day0321;
+
+import java.util.Scanner;
+
+public class Ex4ArrayAlphapcount {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String msg[];
+		int alpha[] = new int[26];
+		for(int i=0;i<i+1;i++)
+		{
+			System.out.println("알파벳 입력 : ");
+			msg = sc.nextLine();
+		}
+//		for(int i=0;i<alpha.length-1;i++)
+//		{
+//			for(int j=i+1;j<alpha.length;j++)
+//			{
+//				String stemp = alpha[i];
+//				alpha[i] = alpha[j];
+//				alpha[j] = stemp;
+//			}
+//		}
+		for(int i=0;i<alpha.length;i++)
+		{
+			for(int j=0;j<alpha.length;j++;)
+			{
+				if(alpha[i]==(int)msg[j])
+				{
+					alpha[i]++;
+				}
+			}
+		}
+	}
+
+}

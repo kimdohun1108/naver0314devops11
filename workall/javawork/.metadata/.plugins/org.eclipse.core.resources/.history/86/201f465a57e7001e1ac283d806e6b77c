@@ -1,0 +1,18 @@
+package day0321;
+
+import java.util.Scanner;
+
+public class book199p_9 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc =new Scanner(System.in);
+		while(true)
+		{
+			System.out.println("=".repeat(30));
+			System.out.println("1.학생수 | 2.점수입력 | 3.점수리스트 | 4.분석 | 5.종료");
+		}
+
+	}
+
+}

@@ -1,0 +1,31 @@
+package day0321;
+
+public class Ex1Randomjungbok {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int rand[] = new int [10];
+		Loop:
+		for(int i=0;i<10;i++)
+		{
+			int n = (int)(Math.random()*30)+1;//
+			rand[i] = n;
+			
+			//중복처리
+			for(int k=0;k<rand.length;k++)
+			{
+				if(rand[i]==rand[k])
+				{
+					//i--;
+					break;//continue Loop;
+				}
+			}
+		}
+		System.out.println("1~30 사이의 중복되지 않은 난수 구하기");
+		for(int j=0;j<rand.length;j++)
+		{
+			System.out.printf("%4d",rand[j]);
+		}
+	}
+
+}

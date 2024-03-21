@@ -45,6 +45,7 @@ public class Ex8String {
 		System.out.println("apple".compareTo("append"));//'1','e' : 7
 		System.out.println("apple".compareTo("banana"));
 		System.out.println("apple".compareTo("apple"));
+		System.out.println("computer".compareTo("apple"));//첫문자열이 더 클경우 2
 		
 		//문자 반복
 		System.out.println(str2.repeat(3));

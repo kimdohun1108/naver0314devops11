@@ -1,0 +1,34 @@
+package day0321;
+
+import java.util.Scanner;
+
+public class Ex4ArrayAlphapcount {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String msg;
+		int alpha[] = new int[26];
+		for(int i=0;i<i+1;i++)
+		{
+			System.out.println("알파벳 입력 : ");
+			msg = sc.nextLine();
+		}
+
+		for(int i=0;i<msg.length();i++)
+		{
+			char ch = msg.toUpperCase().charAt(i);
+			if(ch>='A' && ch<='Z')
+			{
+				alpha[ch-'A']++;	
+			}
+		}
+		
+		System.out.println("** 알파벳별 개수 구하기 **");
+		for(int i=0;i<alpha.length;i++)
+		{
+			System.out.printf("%c : %d\t",(char)('A'+i),alpha[i]);
+		}
+	}
+
+}

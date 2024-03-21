@@ -9,7 +9,6 @@ public class Ex10ArraySreachStratWith {
 		Scanner sc = new Scanner(System.in);
 		String members[] = {"강호동","한가인","유재석","이승민","강하나","손미나","이영자","박남정","한지혜","손창민"};
 		String sreachname;
-		int count = 0;
 		for(int i=0;i<i+1;i++)
 		{
 			System.out.println("검색할 성(q,Q : 종료) : ");
@@ -19,13 +18,14 @@ public class Ex10ArraySreachStratWith {
 				System.out.println("종료합니다");
 				break;
 			}
+			int count = 0;
 			for(int j=0;j<members.length;j++)
 			{
 				if(members[j].startsWith(sreachname))
 				{
 					System.out.printf("%d번째 : %s\n",j+1,members[j]);
 				}
-				else if(!members[j].startsWith(sreachname) && count==10)
+				else if(!members[j].startsWith(sreachname) && count==9)
 				{
 					System.out.printf("\"%s\"로 시작하는 맴버는 없습니다.\n",sreachname);
 					break;

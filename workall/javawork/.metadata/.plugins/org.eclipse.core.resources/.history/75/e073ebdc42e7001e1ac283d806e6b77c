@@ -1,0 +1,14 @@
+package day0321;
+
+public class Ex7Array2cha {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//2차원배열 선언 방법
+		int arr[][];
+		arr = new int[2][3];
+		System.out.println("행개수 : "+arr.length);
+		System.out.println("0번행의 열개수 : "+arr[0].length);
+	}
+
+}
