@@ -9,7 +9,7 @@ public class book199p_9 {
 		Scanner sc =new Scanner(System.in);
 		int n, n2 = 0;
 		int num =0;
-		int score[] = new int[3];
+		int score[] = null;
 		double avg = 0.0;
 		while(true)
 		{
@@ -22,7 +22,7 @@ public class book199p_9 {
 				System.out.println("선택> 1");
 				System.out.print("학생수>");
 				num = sc.nextInt();
-				continue;
+				score = new int[num];
 			}
 			else if(n==2)
 			{
@@ -54,14 +54,26 @@ public class book199p_9 {
 				}
 				for(int i=0;i<num;i++)
 				{
-					if(score[i]<score[i+1])
+					for(int j=1;j<num;j++)
 					{
-						n2 = score[i+1];
+						if(score[i]<score[j])
+						{
+							n2 = score[j];
+						}
 					}
 				}
+				// 이것도 너무 괜찮다 for문 하나만 씀
+//				n2 = score[0];
+//				for(int i=1;i<num;i++)
+//				{
+//					if(n2<score[i])
+//					{
+//						n2=score[i];
+//					}
+//				}
 				System.out.printf("최고 점수: %d",n2);
 				System.out.println();
-				System.out.printf("평균 점수: %f",avg);
+				System.out.printf("평균 점수: %f",avg/num);
 				System.out.println();
 				continue;
 			}

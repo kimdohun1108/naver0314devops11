@@ -1,0 +1,55 @@
+package day0325;
+
+public class Shop {
+	private String sang;
+	private int su;
+	private int dan;
+	
+	public String getSang()
+	{
+		return sang;
+	}
+	public int getSu()
+	{
+		return su;
+	}
+	public int getDan()
+	{
+		return dan;
+	}
+	
+	public void setSang(String sang)
+	{
+		this.sang = sang;
+	}
+	public void setSu(int su)
+	{
+		this.su = su;
+	}
+	public void setDan(int dan)
+	{
+		this.dan = dan;
+	}
+	public void setSangpum(String sang)
+	{
+		this.sang = sang;
+		
+	}
+	
+	Shop()
+	{
+		this("바나나",2,1000)
+	}
+	Shop(String sang)
+	{
+		this(sang,3,2000)
+	}
+	Shop(int su,int dan)
+	{
+		this("두리안",su,dan)
+	}
+	Shop(String sang,int su,int dan)
+	{
+		this(sang,su,dan)
+	}
+}

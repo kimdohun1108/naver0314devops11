@@ -1,0 +1,33 @@
+package day0322;
+
+public class sawon {
+	private String name;
+	private int gibon;
+	private int sudang;
+	
+	public String getName()
+	{
+		return name;
+	}
+	public int getGibon()
+	{
+		return gibon;
+	}
+	public int getSudang()
+	{
+		return sudang;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+	public void setGibom(int gidon)
+	{
+		this.gibon = gibon;
+	}
+	public void setSudang(int sudang)
+	{
+		this.sudang = sudang;
+	}	
+}

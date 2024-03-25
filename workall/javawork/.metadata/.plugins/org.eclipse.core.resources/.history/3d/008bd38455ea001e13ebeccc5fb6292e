@@ -1,0 +1,27 @@
+package day0325;
+
+public class Enployee {
+	private String name;
+	private String position;
+	private int age;
+	private int gidon;
+	private int sudang;
+	
+	public Employee()
+	{
+		
+	}
+	public Employee()
+	{
+		
+	}
+	public Employee()
+	{
+		
+	}
+	public Employee()
+	{
+		
+	}
+	
+}

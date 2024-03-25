@@ -1,0 +1,53 @@
+package day0322;
+
+import java.util.Scanner;
+
+public class Ex7classSawonArray {
+	
+	//입력받는 메서드
+	static public void inputSawonArray(sawon sa[])
+	{
+		Scanner sc = new Scanner(System.in);
+		for(int i=0;i<sa.length;i++)
+		{
+			System.out.printf("사원명은?");
+			String name = sc.nextLine();
+			System.out.printf("기본급은?");
+			int gibon = Integer.parseInt(sc.nextLine());
+			System.out.printf("수당은?");
+			int sudang = Integer.parseInt(sc.nextLine());
+			
+			sa[i] = new sawon();  
+			sa[i].setSawon(name, gibon, sudang);
+			System.out.println();
+		}
+	}
+	//출력하는 메서드
+	static public void outputSawonArray(sawon sa[])
+	{
+		System.out.println("\t\t[사원 급여 현황]\n");
+		System.out.println("번호\t사원명\t기본급\t수당\t실수령액");
+		System.out.println("=".repeat(60));
+		
+		for(int i=0;i<sa.length;i++)
+		{
+			System.out.println(i+"\t"+sa[i].getName()+"\t"+sa[i].getGibon()+"\t"+sa[i].getSudang()+"\t"+sa[i].getNetpay());
+		}
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		sawon sawon[] = null;
+		int inwon;
+		Scanner sc = new Scanner(System.in);
+		System.out.println("직원 인원수는?");
+		inwon = Integer.parseInt(sc.nextLine());
+		//inwon = sc.nextInt();//X
+		//인원수만큼 메모리 할당
+		sawon = new sawon[inwon];
+		
+		inputSawonArray(sawon);
+		outputSawonArray(sawon);
+	}
+
+}

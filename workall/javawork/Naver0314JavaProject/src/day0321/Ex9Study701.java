@@ -13,32 +13,33 @@ public class Ex9Study701 {
 				"신완철","우태형","유상곤","이가현","이병현",
 				"이장우","이현성","정민석","정상혁","정진욱",
 				"정환용","최시현","허승필","황재웅","꽝"};
+		int rnd[] = new int[30];
 		String team[][] = new String[6][5];
 		for(int i=0;i<team.length;i++)
 		{
 			for(int j=0;j<team[0].length;j++)
-			{//substring
-				int n = (int)(Math.random()*30)+1;
+			{
+				rnd[i] = (int)(Math.random()*30)+1;
 				//중복처리
 				for(int k=0;k<j;k++)
 				{
-					if(team[j]==team[k])
+					if(rnd[j]==rnd[k])
 					{
-						j--;
+						k--;
 						break;//continue Loop;
 					}
 				}
-				team[i][j] = n;
 			}
 		}
-		
+		int idx = 0;
 		for(int i=0;i<team.length;i++)
 		{
-			for(int j=0;j<team[0].length;j++)
+			for(int j=0;j<team[i].length;j++)
 			{
-				System.out.printf("[%d조 팀]\t%s\t%s\t%s\t%s\t%s",j+1,team[i][j]);
-				System.out.println();
+				team[i][j] = members[rnd[idx++]];
+				System.out.printf("%4s",team[i][j]);
 			}
+			System.out.println();
 		}
 	}
 }
