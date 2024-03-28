@@ -31,8 +31,10 @@ public class Ex8Array2chaBingo {
 			//빙고개수나 꽝 출력
 			for(int j=0;j<arr.length;j++)
 			{
-				int count = 1;
-				int count2 = 1;
+				int count = 0;
+				int count2 = 0;
+				int count3 = 0;
+				int count4 = 0;
 				for(int k=0;k<arr.length;k++)
 				{
 					if(arr[j][k]==arr[j][0])
@@ -42,13 +44,17 @@ public class Ex8Array2chaBingo {
 					if(arr[k][j]==arr[0][j])
 					{
 						count2++;//행
-					}		
+					}
+					if(j==k && arr[j][k]==arr[0][0])
+					{
+						count3++;//대각
+					}
+					if((j + k == arr.length - 1 && arr[j][k] == arr[0][arr.length - 1])
+							{
+						count4++;
+							}
 				}
-				if(count==arr.length)
-				{
-					binggo++;
-				}
-				else if(count2==arr.length)//count==열,arr.length     열==행
+				if(count==arr.length || count2==arr.length || count3==arr.length || count4==arr.length)
 				{
 					binggo++;
 				}

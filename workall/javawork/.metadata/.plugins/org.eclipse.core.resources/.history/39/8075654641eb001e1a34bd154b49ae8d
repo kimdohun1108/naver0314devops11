@@ -1,0 +1,33 @@
+package day0326;
+
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class Ex14FileExcepsion {
+
+	static final String FILENAME = "d:/naver0314/memo1.txt";
+
+	static public void fileSave()
+	{
+		FileWriter fw = null;
+		try {
+			fw = new FileWriter(FILENAME);
+			fw.write("이름 : 홍길동");
+			fw.write("나이 : 20세");
+			fw.write("주소 : 강남구");
+		}catch (IOException e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				fw.close();
+			}catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		fileSave();
+	}
+
+}

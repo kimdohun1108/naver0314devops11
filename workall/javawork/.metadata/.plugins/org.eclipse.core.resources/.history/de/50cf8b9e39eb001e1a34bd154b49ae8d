@@ -1,0 +1,36 @@
+package day0326;
+
+import java.util.Scanner;
+
+public class Ex12Exception {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		String s1 = null;
+		String s2 = null;
+		
+		for(int i=0;i<i+1;i++)
+		{
+			for(int j=0;j<1;j++)
+			{
+				System.out.println("두 수 입력");
+				s1 = sc.nextLine();
+				s2 = sc.nextLine();
+			}
+			
+			//숫자형태의 문자열을 숫자로 변환
+			//변환시 문자가 섞여있으면 NumberFormatException 발생
+			try {
+			int n1 = Integer.parseInt(s1);
+			int n2 = Integer.parseInt(s2);
+			int sum = n1 + n2;
+			System.out.printf("%d + %d = %d\n\n",n1,n2,sum);
+		}catch(NumberFormatException e)
+			{
+			System.out.println("문자가 입력되었어요!"+e.getMessage());
+			}
+		System.out.println("**정상종료**");
+	}
+
+}

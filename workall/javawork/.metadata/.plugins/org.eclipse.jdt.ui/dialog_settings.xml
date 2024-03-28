@@ -97,6 +97,7 @@
 		<item key="FinalModifier" value="false"/>
 		<item key="SynchronizedModifier" value="false"/>
 		<item key="Comments" value="false"/>
+		<item key="InsertPosition.v2" value="0"/>
 	</section>
 	<section name="AddGetterSetterDialog">
 		<item key="SortOrdering" value="false"/>
@@ -114,6 +115,33 @@
 		<item key="DIALOG_Y_ORIGIN" value="55"/>
 		<item key="DIALOG_WIDTH" value="529"/>
 		<item key="DIALOG_HEIGHT" value="566"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="NewAnnotationCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="456"/>
+		<item key="DIALOG_Y_ORIGIN" value="46"/>
+		<item key="DIALOG_WIDTH" value="541"/>
+		<item key="DIALOG_HEIGHT" value="580"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="3"/>
+	</section>
+	<section name="OverrideMethodDialog">
+		<item key="showtypes" value="true"/>
+	</section>
+	<section name="DialogBounds_OverrideMethodDialog">
+		<item key="DIALOG_X_ORIGIN" value="456"/>
+		<item key="DIALOG_Y_ORIGIN" value="83"/>
+		<item key="DIALOG_WIDTH" value="540"/>
+		<item key="DIALOG_HEIGHT" value="524"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+	<section name="NewEnumCreationWizard.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="462"/>
+		<item key="DIALOG_Y_ORIGIN" value="85"/>
+		<item key="DIALOG_WIDTH" value="529"/>
+		<item key="DIALOG_HEIGHT" value="521"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-24|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>

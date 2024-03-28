@@ -1,7 +1,5 @@
 package day0321;
 
-import java.util.Random;
-
 public class Ex9Study701 {
 
 	public static void main(String[] args) {
@@ -15,28 +13,33 @@ public class Ex9Study701 {
 				"정환용","최시현","허승필","황재웅","꽝"};
 		int rnd[] = new int[30];
 		String team[][] = new String[6][5];
-		for(int i=0;i<team.length;i++)
+		loop:
+		for(int i=0;i<members.length;i++)
 		{
-			for(int j=0;j<team[0].length;j++)
+			rnd[i] = (int)(Math.random()*30);
+			//중복처리
+			for(int j=0;j<i;j++)
 			{
-				rnd[i] = (int)(Math.random()*30)+1;
-				//중복처리
-				for(int k=0;k<j;k++)
+				if(rnd[i]==rnd[j])
 				{
-					if(rnd[j]==rnd[k])
-					{
-						k--;
-						break;//continue Loop;
-					}
+					i--;
+					break; 
 				}
 			}
 		}
+
 		int idx = 0;
 		for(int i=0;i<team.length;i++)
 		{
 			for(int j=0;j<team[i].length;j++)
 			{
 				team[i][j] = members[rnd[idx++]];
+			}
+		}
+		for(int i=0;i<team.length;i++)
+		{
+			for(int j=0;j<team[i].length;j++)
+			{
 				System.out.printf("%4s",team[i][j]);
 			}
 			System.out.println();

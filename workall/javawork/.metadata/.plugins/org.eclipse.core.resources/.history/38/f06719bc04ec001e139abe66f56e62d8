@@ -1,0 +1,118 @@
+package day0327;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Ex8MemberList {
+
+	List<MemberDto> list = new ArrayList<MemberDto>();
+	Scanner sc = new Scanner(System.in);
+	static final String FILENAME = "C:/Users/사용자/Desktop/naver 0314/member.txt";
+	
+	public Ex8MemberList()
+	{
+		memberReadFile();
+	}
+	//파일 읽기
+	public void memberReadFile()
+	{
+		
+	}
+	//파일 저장, 종료
+	public void memberSave()
+	{
+		
+	}
+	//메뉴 선택
+	public int getMenu()
+	{
+		int menu = 0;
+		System.out.println("1.멤버정보추가");
+		System.out.println("2.멤버삭제");
+		System.out.println("3.전체멤버출력");
+		System.out.println("4.이름으로검색");
+		System.out.println("5.핸드폰으로검색");
+		System.out.println("6.저장후종료");
+		System.out.println("=".repeat(10));
+		try {
+			menu = Integer.parseInt(sc.nextLine());
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			System.out.println("번호를 숫자로 입력해주세요");
+		}
+		return menu;
+	}
+	//멤버 데이터 추가
+	public void addMember()
+	{
+		System.out.println("이름을 입력하세요");
+		String name = sc.nextLine();
+		System.out.println("번호을 입력하세요");
+		String hp = sc.nextLine();
+		System.out.println("주소을 입력하세요");
+		String addr = sc.nextLine();
+		System.out.println("혈액형을 입력하세요");
+		String blood = sc.nextLine();
+		
+		MemberDto dto = new MemberDto(name, hp, addr, blood);
+		//list에 추가 
+		list.add(dto);
+		System.out.println(list.size()+"번째 멤버 정보를 추가하였습니다.");
+	}
+	//멤버 데이터 삭제
+	public void deleteMember()
+	{
+		
+	}
+	//전체 멤버 출력
+	public void writeMember()
+	{
+		
+	}
+	//이름으로 검색 
+	public void searchNeme()
+	{
+		
+	}
+	//전화번호 검색
+	public void searchPhone()
+	{
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ex8MemberList ex = new Ex8MemberList();
+		while(true)
+		{
+			int menu = ex.getMenu();
+			
+			switch(menu)
+			{
+			case 1:
+				ex.addMember();
+				break;
+			case 2:
+				ex.deleteMember();
+				break;
+			case 3:
+				ex.writeMember();
+				break;
+			case 4:
+				ex.searchNeme();
+				break;
+			case 5:
+				ex.searchPhone();
+				break;
+			case 6:
+				ex.memberSave();
+				System.out.println("**멤버정보를 저장후 종료합니다**");
+				System.exit(0);//종료
+			default:
+				System.out.println("잘못된 번호입니다.");
+			}
+			System.out.println();
+		}
+	}
+
+}

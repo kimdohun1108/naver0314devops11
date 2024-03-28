@@ -1,0 +1,74 @@
+package day0326;
+
+import java.util.Scanner;
+
+abstract class Command{
+	abstract public void process();
+}
+
+class List extends Command{
+	@Override
+	public void process()
+	{
+		System.out.println("데이터 목록을 출력합니다");
+	}
+}
+
+class Delete extends Command{
+	@Override
+	public void process()
+	{
+		System.out.println("데이터 목록을 삭제합니다");
+	}
+}
+
+class Insert extends Command{
+	@Override
+	public void process()
+	{
+		System.out.println("데이터 목록을 추가합니다");
+	}
+}
+
+class Update extends Command{
+	@Override
+	public void process()
+	{
+		System.out.println("데이터 목록을 수정합니다");
+	}
+}
+
+public class Ex3Abstarct {
+	static public void process(Command comm)
+	{
+		comm.process();//comm에 누가 생성했나에 따라 달라짐
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner sc = new Scanner(System.in);
+		System.out.println("1.추가 2.삭제 3.출력 4.수정 5.종료");
+		System.out.println("=".repeat(60));
+		int n = sc.nextInt();
+		switch(n)
+		{
+		case 1:
+			process(new Insert());
+			break;
+		case 2:
+			process(new Delete());
+			break;
+		case 3:
+			process(new List());
+			break;
+		case 4:
+			process(new Update());
+			break;
+		case 5:
+			System.out.println("DB 작업을 종료합니다");
+			break;
+		default:
+			System.out.println("잘못된 번호입니다.");
+		}
+	}
+
+}

@@ -1,0 +1,59 @@
+package day0326;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Ex16ExceptionMunje {
+	
+	static int count = 0;
+	static int sum;
+	static double avg;
+	static final String FILENAME2 = "C:/Users/사용자/Desktop/naver 0314/score.txt";
+	static public void readerScore() throws IOException
+	{
+		BufferedReader br = null;
+		FileReader fr = null;
+		
+		try {
+			fr = new FileReader(FILENAME2);
+			System.out.println("**memo2 파일을 읽습니다**");
+			br = new BufferedReader(fr);
+			
+			while(true)
+			{
+				//파일의 내용을 한줄씩 읽어온다
+				String line = br.readLine();
+				
+				sum = Integer.parseInt(FILENAME2);
+				sum += sum;
+				count++;
+				avg = sum / (double)count; 
+				
+				//만약 더이상 데이터가 없을 경우 null값이 반환
+				if(line==null)
+				{
+					break;
+				}
+				System.out.println(line);
+			}
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		try {
+			br.close();
+			fr.close();
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("count : "+count);
+		System.out.println("sum : "+sum);
+		System.out.println("avg : "+avg);
+	}
+
+}

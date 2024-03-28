@@ -1,0 +1,25 @@
+package day0326;
+
+import java.util.Date;
+
+public class Ex13Exception {
+	
+	//발생하는 예외를 던저서 호출하는곳에서 처리하도록 한다
+	static public void go1()
+	{
+		//Date date = null;
+		Date date = new Date();
+		System.out.println(date.getYear()+1900);
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		try {
+			go1();
+		}catch (NullPointerException e) {
+			System.out.println("Date클래스 생성을 안하고 메서드 호출 :"+e.getMessage());
+		}
+		System.out.println("**종료**");
+	}
+
+}

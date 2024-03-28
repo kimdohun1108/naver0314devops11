@@ -1,0 +1,64 @@
+package day0326;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Ex16ExceptionMunje {
+
+    public static int count = 0;
+    public static int sum = 0;
+    public static double avg = 0;
+    static final String FILENAME2 = "C:/Users/사용자/Desktop/naver 0314/score.txt";
+
+    static public void readerScore() {
+        BufferedReader br = null;
+        FileReader fr = null;
+
+        try {
+            fr = new FileReader(FILENAME2);
+            System.out.println("**score.txt 파일을 읽습니다**");
+            br = new BufferedReader(fr);
+            String line;
+            while ((line = br.readLine()) != null) {
+                // 파일의 내용을 한줄씩 읽어온다
+                try {
+                    sum += Integer.parseInt(line);
+                    count++;
+                } catch (NumberFormatException e) {
+                   e.printStackTrace();
+                }
+            }
+
+            if (count == 0) {
+                System.out.println("파일에 데이터가 없습니다.");
+            } else {
+                avg = (double) sum / count;
+                System.out.println("횟수 : "+count);
+                System.out.println("총합 : " +sum);
+                System.out.println("평균 : " +avg);
+            }
+
+        } catch (FileNotFoundException e) {
+            System.out.println("**score.txt 파일이 없어요**");
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (br != null) {
+                    br.close();
+                }
+                if (fr != null) {
+                    fr.close();
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void main(String[] args) {
+        readerScore();
+    }
+}

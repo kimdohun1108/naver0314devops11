@@ -13,9 +13,9 @@ public class Ex5forstar {
 			System.out.println();
 		}
 		System.out.println("+++++++++++++++++++++++++++++++");
-		for(int i=1;i<6;i++)
+		for(int i=1;i<6;i++)//행
 		{
-			for(int j=0;j<i;j++)
+			for(int j=0;j<i;j++)//열
 			{
 				System.out.print("*");
 			}

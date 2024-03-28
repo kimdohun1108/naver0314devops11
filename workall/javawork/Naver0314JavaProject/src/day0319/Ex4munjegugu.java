@@ -9,6 +9,7 @@ public class Ex4munjegugu {
 		for(int dan=2;dan<10;dan++)
 		{
 			System.out.printf("**%d단**\t",dan);
+			System.out.println();
 		}
 		for(int i=1;i<10;i++)
 		{

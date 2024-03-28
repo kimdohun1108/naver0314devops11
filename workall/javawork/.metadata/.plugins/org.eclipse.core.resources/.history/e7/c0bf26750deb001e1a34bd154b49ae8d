@@ -1,0 +1,62 @@
+package day0326;
+
+//abstract(추상화) 메서드는 오버라이드만 목적으로 body({}) 없이 구련하고자 할 경우
+//앞에 abstract를 붙혀서 추상메서드로 만듬
+//abstract메서드를 한개이상 포함하고 있는 클래스는 클래스 역시 추상화시켜야한다
+//추상화 시키는 방법은 class 앞에 abstract를 붙인다
+//단 추상화클래스 그 자체로는 생성 불가
+//추상클래스를 상속받는 서브클래스는 반드시 추상메서드를 오버라이드만 해야하는데
+//만약 오버라이드하지 않았을 경우 서브클래스 역시 추상화시킨다
+abstract class Animal{
+//	public void sound()
+//	{
+//		System.out.println("딱히 하는 일이 없음");
+//	}
+	abstract public void sound();
+	public void showtital()
+	{
+		System.out.println("추상클래스 공부중");
+	}
+}
+
+class Dog extends Animal{
+	@Override
+	public void sound()
+	{
+		//super.sound();//추상클래스라서
+		System.out.println("멍멍!!");
+	}
+}
+
+class Cat extends Animal{
+	@Override
+	public void sound() 
+	{
+		//super.sound();//추상클래스라서
+		System.out.println("야옹!");
+	}
+}
+
+class Chick extends Animal{
+	@Override
+	public void sound()
+	{
+		//super.sound();//추상클래스라서 
+		System.out.println("삐약삐약");
+	}
+}
+public class Ex1Abstrect {
+
+	public static void hello(Animal ani)
+	{
+		ani.sound();
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		hello(new Cat());
+		hello(new Dog());
+		hello(new Chick());
+		//hello(new Animal());//추상클래스는 new 생성불가
+	}
+
+}

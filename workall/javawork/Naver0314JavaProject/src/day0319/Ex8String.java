@@ -11,13 +11,13 @@ public class Ex8String {
 		String str2 = "apple";
 		String str3 = "Apple";
 		
-		System.out.println(str1.charAt(7));//7번 인덱스문자 : N
+		System.out.println(str1.charAt(8));//7번 인덱스문자 : N
 		System.out.println(str1.charAt(0));//0번 인덱스문자 : H
 		System.out.println(str1.indexOf('a'));//첫번째 'a'위치 : 1
 		System.out.println(str1.indexOf('x'));//첫번째 'x'위치 : -1
 		System.out.println(str1.lastIndexOf('a'));//마지막 'a'위치 : 13
 		System.out.println(str1.length());//str1의 총 길이 : 15
-		System.out.println(str2.concat("***"));//str2 문자에 *** 추가 반환
+		System.out.println(str2.concat(str2));//str2 문자에 *** 추가 반환
 		System.out.println(str2+"***");//위와 같다
 		System.out.println(str1.toLowerCase());//모두 소문자로 변환
 		System.out.println(str1.toUpperCase());//모두 대문자로 변환
@@ -50,7 +50,7 @@ public class Ex8String {
 		//문자 반복
 		System.out.println(str2.repeat(3));
 		System.out.println("*".repeat(10));
-		
+	
 		//문자열 분리(결과값이 배열타입)
 		String colors = "red,blue,green,yellow,pink";
 		// ,로 분리하고 싶을경우

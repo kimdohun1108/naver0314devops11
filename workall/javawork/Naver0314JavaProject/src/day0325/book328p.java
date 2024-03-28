@@ -1,0 +1,23 @@
+package day0325;
+
+public class book328p {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Dog2 dog2 = new Dog2();
+		dog2.sound();
+
+		Cat2 cat2 = new Cat2();
+		cat2.sound();
+
+		animalSound(new Dog2());
+		animalSound(new Cat2());
+	}
+
+	public static void animalSound(Animal2 animal)
+	{
+		animal.sound();
+	}
+}
+
+

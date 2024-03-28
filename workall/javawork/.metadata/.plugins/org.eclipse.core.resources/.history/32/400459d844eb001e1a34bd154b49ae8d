@@ -1,0 +1,10 @@
+package day0326;
+
+public class Ex15FilereaderMemo {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		static final String FILENAME2 = "d:\naver0314"
+	}
+
+}

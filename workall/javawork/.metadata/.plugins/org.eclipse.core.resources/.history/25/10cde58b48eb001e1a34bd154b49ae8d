@@ -1,0 +1,45 @@
+package day0326;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class Ex16ExceptionMunje {
+	
+	static final String FILENAME2 = "C:/Users/사용자/Desktop/naver 0314/score.txt";
+	static public void readerScore() throws FileNotFoundException
+	{
+		BufferedReader br = null;
+		FileReader fr = null;
+		int count = 0;
+		int sum;
+		double avg;
+		
+		try {
+			
+			for(int i=0;i<FILENAME2.length();i++)
+			{
+				sum = Integer.parseInt(FILENAME2);
+				sum += sum;
+				count++;
+				avg = sum / (double)count; 
+			}
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+		try {
+			br.close();
+			fr.close();
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -1,0 +1,208 @@
+package day0327;
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.lang.reflect.Member;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Ex8MemberList {
+
+	List<MemberDto> list = new ArrayList<MemberDto>();
+	Scanner sc = new Scanner(System.in);
+	static final String FILENAME = "C:/Users/사용자/Desktop/naver 0314/member.txt";
+	
+	public Ex8MemberList()
+	{
+		memberReadFile();
+	}
+	//파일 읽기
+	public void memberReadFile()
+	{
+		FileReader fr = null;
+		BufferedReader br = null;
+		
+		try {
+			fr = new FileReader(FILENAME);
+			br = new BufferedReader(fr);
+			
+			while(true)
+			{
+				String s = br.readLine();//한줄로 읽음
+				if(s==null)
+					break;
+				//, 분리하기
+				String a[] = s.split(",");
+				//memberDto 생성후 setter로 데이터 넣기
+				MemberDto dto = new MemberDto();
+				dto.setName(a[0]);
+				dto.setHp(a[1]);
+				dto.setAddr(a[2]);
+				dto.setBlood(a[3]);
+				
+				//list에 추가
+				list.add(dto);
+			}
+			System.out.println("총"+list.size()+"명의 멤버 정보르 읽어왔어요!!");
+		} catch (FileNotFoundException e) {
+			// TODO: handle exception
+			System.out.println("익어올 멤버 정보가 없습니다.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (IOException | NullPointerException e) {//두가지 Exception을 처리 할경우 |
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+	}
+	//파일 저장, 종료
+	public void memberSave()
+	{
+		FileWriter fw = null;
+		try {
+			fw = new FileWriter(FILENAME);
+			for(MemberDto dto : list)
+			{
+				String s = dto.getName()+","+dto.getHp()+","+dto.getAddr()+","+dto.getBlood()+"\n";
+				fw.write(s);
+			}
+			System.out.println("총 "+list.size()+"명의 정보를 파일에 저장하였습니다.");
+		} catch (IOException e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}finally {
+			try {
+				fw.close();
+			} catch (IOException | NullPointerException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}
+		
+		
+	}
+	//메뉴 선택
+	public int getMenu()
+	{
+		int menu = 0;
+		System.out.println("1.멤버정보추가");
+		System.out.println("2.멤버삭제");
+		System.out.println("3.전체멤버출력");
+		System.out.println("4.이름으로검색");
+		System.out.println("5.핸드폰으로검색");
+		System.out.println("6.저장후종료");
+		System.out.println("=".repeat(10));
+		try {
+			menu = Integer.parseInt(sc.nextLine());
+		} catch (NumberFormatException e) {
+			// TODO: handle exception
+			System.out.println("번호를 숫자로 입력해주세요");
+		}
+		return menu;
+	}
+	//멤버 데이터 추가
+	public void addMember()
+	{
+		System.out.println("이름을 입력하세요");
+		String name = sc.nextLine();
+		System.out.println("번호을 입력하세요");
+		String hp = sc.nextLine();
+		System.out.println("주소을 입력하세요");
+		String addr = sc.nextLine();
+		System.out.println("혈액형을 입력하세요");
+		String blood = sc.nextLine();
+		
+		MemberDto dto = new MemberDto(name, hp, addr, blood);
+		//list에 추가 
+		list.add(dto);
+		System.out.println(list.size()+"번째 멤버 정보를 추가하였습니다.");
+	}
+	//멤버 데이터 삭제
+	public void deleteMember()
+	{
+		System.out.println("삭제할 이름");
+		String name = sc.nextLine();
+		MemberDto dto = new MemberDto();
+		while(true)
+		{
+			if(dto.getName().equals(name))
+			{
+				System.out.println("삭제할 명단이 없습니다.");
+				break;
+			}
+			else
+			{
+				System.out.println(name+"을 삭제했습니다.");
+				break;
+			}
+		}
+	}
+	//전체 멤버 출력
+	public void writeMember()
+	{
+		System.out.println("\t**전체 멤버 명단 **\n");
+		System.out.println("=".repeat(60));
+		System.out.println("번호\t이름\t핸드폰\t\t주소\t혈액형");
+		System.out.println("=".repeat(60));
+		for(int i=0;i<list.size();i++)
+		{
+			MemberDto dto = list.get(i);
+			System.out.println(i+1+"\t"+dto.getName()+"\t"+dto.getHp()+"\t"+dto.getAddr()+"\t"+dto.getBlood().toUpperCase()+"형");
+		}
+		System.out.println("=".repeat(60));
+	}
+	//이름으로 검색 
+	public void searchNeme()
+	{
+		
+	}
+	//전화번호 검색
+	public void searchPhone()
+	{
+		
+	}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Ex8MemberList ex = new Ex8MemberList();
+		while(true)
+		{
+			int menu = ex.getMenu();
+			
+			switch(menu)
+			{
+			case 1:
+				ex.addMember();
+				break;
+			case 2:
+				ex.deleteMember();
+				break;
+			case 3:
+				ex.writeMember();
+				break;
+			case 4:
+				ex.searchNeme();
+				break;
+			case 5:
+				ex.searchPhone();
+				break;
+			case 6:
+				ex.memberSave();
+				System.out.println("**멤버정보를 저장후 종료합니다**");
+				System.exit(0);//종료
+			default:
+				System.out.println("잘못된 번호입니다.");
+			}
+			System.out.println();
+		}
+	}
+
+}

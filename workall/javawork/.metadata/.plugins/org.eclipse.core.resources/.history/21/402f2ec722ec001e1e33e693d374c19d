@@ -1,0 +1,121 @@
+package day0327;
+//1. 학생정보추가 : 이름,나이,3과목 점수입력
+//2. 학생정보삭제 : 이름으로 찾아서 삭제
+//3. 전체출력 : 번호,이름,점수,총점,평균,등급
+//4. 평균으로검색 : 평균값 입력하면 그 평균이상의 학생 출력
+//5. 이름으로검색 : 입력한 이름을 포함하고 있으면 출력(contains)
+//6. 저장후종료
+
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class Ex9vectormunje {
+	List<StudentDto> list = new ArrayList<StudentDto>();
+	Scanner sc = new Scanner(System.in);
+	static final String FILENAME = "C:/Users/사용자/Desktop/naver 0314/student.txt";
+
+	public Ex9vectormunje()
+	{
+		StudentReaderFile();
+	}
+
+	private void StudentReaderFile()
+	{
+		FileReader fr = null;
+		BufferedReader br = null;
+
+		try {
+			fr = new FileReader(FILENAME);
+			br = new BufferedReader(fr);
+
+			while(true)
+			{
+				String s = br.readLine();//한줄로 읽음
+				if(s==null)
+					break;
+				//, 분리하기
+				int a[] = s.split(",");
+				//memberDto 생성후 setter로 데이터 넣기
+				StudentDto dto = new StudentDto();
+				dto.setName(a[0]);
+				dto.setAge(a[1]);
+				dto.setJava(a[2]);
+				dto.setSpring(a[2]);
+				dto.setHtml(a[3]);
+
+				//list에 추가
+				list.add(dto);
+			}
+			System.out.println("총"+list.size()+"명의 학생 정보르 읽어왔어요!!");
+		} catch (FileNotFoundException e) {
+			// TODO: handle exception
+			System.out.println("일어올 학생 정보가 없습니다.");
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally {
+			try {
+				br.close();
+				fr.close();
+			} catch (IOException | NullPointerException e) {//두가지 Exception을 처리 할경우 |
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+		}	
+
+	}
+	//파일 저장, 종료
+		public void memberSave()
+		{
+			FileWriter fw = null;
+			try {
+				fw = new FileWriter(FILENAME);
+				for(StudentDto dto : list)
+				{
+					String s = dto.getName()+","+dto.getAge()+","+dto.getJava()+","+dto.getSpring()+","+dto.getHtml()+"\n";
+					fw.write(s);
+				}
+				System.out.println("총 "+list.size()+"명의 정보를 파일에 저장하였습니다.");
+			} catch (IOException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}finally {
+				try {
+					fw.close();
+				} catch (IOException | NullPointerException e) {
+					// TODO: handle exception
+					e.printStackTrace();
+				}
+			}
+		}
+		//메뉴 선택
+		public int getMenu()
+		{
+			int menu = 0;
+			System.out.println("1.학생정보추가");
+			System.out.println("2.학생정보삭제");
+			System.out.println("3.전체출력");
+			System.out.println("4.평균으로검색");
+			System.out.println("5.이름으로검색");
+			System.out.println("6.저장후종료");
+			System.out.println("=".repeat(10));
+			try {
+				menu = Integer.parseInt(sc.nextLine());
+			} catch (NumberFormatException e) {
+				// TODO: handle exception
+				System.out.println("번호를 숫자로 입력해주세요");
+			}
+			return menu;
+		}
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
