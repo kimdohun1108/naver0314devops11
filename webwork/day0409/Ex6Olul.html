@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- ol : order list(순서있는 목록) ul : unorder list(순서없는 목록)-->
+    <ol> <!-- type지정을 안할경우 1,2,3 숫자순-->
+        <li>자바</li>
+        <li>HTML</li>
+        <li>스프링부트</li>
+        <li>자바스크립트</li>
+    </ol>
+    <hr> <!-- hr : 선-->
+    <ol type="i"> 
+        <li>자바</li>
+        <li>HTML</li>
+        <li>스프링부트</li>
+        <li>자바스크립트</li>
+    </ol>
+    <hr> <!-- hr : 선-->
+    <ol type="A">
+        <li>
+            자바
+            <ul>
+                <li>김치</li>
+                <li>오이</li>
+            </ul>
+        </li>
+        <li>HTML</li>
+        <li>스프링부트</li>
+        <li>자바스크립트</li>
+    </ol>
+    <hr> <!-- hr : 선-->
+    <ol type="a"> 
+        <li>
+            자바
+            <ul type="square"> <!-- 기본타입 : circle,그외 square,disc-->
+                <li>데이터타입</li>
+                <li>연산자</li>
+                <li>클래스</li>
+            </ul>
+        </li>
+        <li>HTML</li>
+        <li>
+            스프링부트
+            <ol type="a">
+                <li>변수</li>
+                <li>제어문</li>
+            </ol>
+        </li>
+        <li>자바스크립트</li>
+    </ol>
+    <hr> <!-- hr : 선-->
+</body>
+</html>

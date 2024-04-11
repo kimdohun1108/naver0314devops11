@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body *{ /*body 전체*/
+            font-family: 'Dokdo';
+        }
+
+        table.tb1{ 
+            width: 400px;
+            border: 5px double gray;
+            border-collapse: collapse; /*separate가 기본값*/
+        }
+
+        table.tb1 tr,table.tb1 td{/*테이블 줄*/
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <table class="tb1">
+        <caption><b>[나의 이력서]</b></caption>
+        <tr>
+            <td rowspan="3"><img src="../img/popup/popup2_1.jpg" width="120" align="center"></td>
+            <td>이름 : 김도훈</td>
+            <td>나이 : 26</td>
+        </tr>
+        <tr>
+            <td colspan="2">핸드폰번호 : 111-1111-1111</td>
+        </tr>
+        <tr>
+            <td colspan="2">주소 : 성남</td>
+        </tr>
+        <tr>
+            <td colspan="3" align="center" style="background-color: darksalmon;"><b style="font-size: 1.5em;"><u>경 력 사 항</u></b></td>
+        </tr>
+        <tr>
+            <td>2021.02.10<br>&nbsp;&nbsp;&nbsp;&nbsp;~2023.23.23</td>
+            <td colspan="2">현대자동차 사무직</td>
+        </tr>
+        <tr>
+            <td>2021.02.10<br>&nbsp;&nbsp;&nbsp;&nbsp;~현재</td>
+            <td colspan="2">삼성전자 IT사업부</td>
+        </tr>
+    </table>
+</body>
+</html>
