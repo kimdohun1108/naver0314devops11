@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+ <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
+    <style>
+        body *{
+            font-family: 'Jua';
+        }
+        
+        img.photo{
+        	position: absolute;
+        	left:320px;
+        	top: 100px;
+        	width: 150px;
+        	border: 3px solid gray;
+        }
+        
+        h5.formtitle{
+        	cursor: pointer;
+        	width: 200px;
+        }
+        
+        .buttons button{
+        	width: 100px;
+        }
+        
+        .buttons{
+        margin-bottom: 10px;
+        }
+        
+        img.smallphoto{
+        	width: 60px;
+        	height: 60px;
+        	border: 1px soild gray;
+        	margin-right: 5px;
+        }
+        
+        div.colorbox{
+        	width: 30px;
+        	height: 30px;
+        	border: 1px solid black;
+        	border-radius: 100px;
+        }
+        
+         div.list2{
+        	width: 400px;
+        	height: 150px;
+        	margin-bottom: 10px;
+        	border: 3px groove orange;
+        	border-radius: 20px;
+        	padding: 20px;
+        	
+        }
+        
+        div.list2 img{
+        	width: 100px;
+        	height: 150px;
+        	margin-right: 10px;
+        	border-radius: 20px;
+        }
+    </style>
+    <script type="text/javascript">
+    	$(function(){
+    		list();
+    		$("div.shopform").hide();
+    		//상품등록 품 나타내기 이벤트
+    		$("h5.formtitle").click(function(){
+    			$(this).next().slideToggle('fast');
+    		});
+    		//순차 버튼 이벤트들
+    		$("#btn1").click(function(){
+    			localStorage.idx=1;
+    			list();
+    		});
+    		$("#btn2").click(function(){
+    			localStorage.idx=2;
+    			list();
+    		});
+    		$("#btn3").click(function(){
+    			localStorage.idx=3;
+    			list();
+    		});
+    		$("#btn4").click(function(){
+    			localStorage.idx=4;
+    			list();
+    		});
+    		//submit (저장) 이벤트
+    		$("#shopfrm").submit(function(e){
+    			//action이 호출되는 기본 이벤트를 무효화한다
+    			e.preventDefault();
+    			//폼안의 모든 name으로 된 데이터를 읽어오려면
+    			let data = $(this).serialize();
+    			$.ajax({
+    				type:"get",
+    				dataType:"html",
+    				url:"./data/insertshop.jsp",
+    				data:data,
+    				success:function(){
+    					list();
+    					
+    					$("#sname").val("");
+    					$("#sprice").val("");
+    					$("#scount").val("0");
+    					
+    					$("div.shopform").slideUp('fast');
+    				}
+    			})
+    		});
+    	});
+    	//삭제이벤트
+    	$(document).on("click",".btndelete",function(e){
+    		e.preventDefault();
+    		
+    		let shopidx = $(this).attr("shopidx");
+    		let a = confirm("삭제할거임?");
+    		if(a)
+    		{
+    			$.ajax({
+    				type:"get",
+    				dataType:"html",
+    				url:"./data/deletedata.jsp",
+    				data:{"shopidx":shopidx},
+    				success:function(){
+    					list();
+    				}
+    			});
+    		}
+    	});
+    	//detail이벤트
+    	$(document).on("click",".btndetail",function(e){
+    		e.preventDefault();
+    		//$("div.asd").empty(); 
+    		let shopidx = $(this).attr("shopidx");
+    		$.ajax({
+				type:"get",
+				dataType:"json",
+				data:{"shopidx":shopidx},
+				url:"./data/selectdata.jsp",
+				success:function(data){
+					
+					let s = 
+						`
+						<div class="list2">
+							<img src="${data.sphoto}" align="left">
+							상품명 : ${data.sname}<br>
+							가 격 : ${data.sprice}<br>
+							색 상 : ${data.scolor}<br>
+							수 량 : ${data.scount}<br>
+							입고일 : ${data.writeday}
+						</div>
+						`;
+					$("div.asd").html(s);
+					//html로 출력하면 그값 하나만 출력 (empty 안해도 됩니다.)
+					//html : 그 값을 그대로 
+					//append : 값을 누적 저장
+				}
+				
+			});	
+    		
+    	});
+    	//idx==1: 등록순, ==2: 낮은가격순, ==3: 높은가격순, ==4: 상품명순
+    	function list(){
+    		let idx= localStorage.idx;
+    		//localStorage를 할경우 값이 저장되어서 새로고침 해도 값이 그대로
+    		if(idx==null)
+    		{
+    			idx=1; //등록 안되어있을경우 1번 등록순
+    		}
+    		
+    		console.log("idx="+idx); //콘솔 찍어보는 함수
+    		
+    		//$("div.shoplist").empty(); //append안쓰고 html로 써서 empty없이 가능
+    		let s = "";
+    		if(idx==1)
+    		{
+    			$("div.shoplist").html(`<h6 class="alert alert-danger">등록순 상품</h6>`);
+    		}
+    		else if(idx==2)
+    		{
+    			$("div.shoplist").html(`<h6 class="alert alert-success">낮은가격순 상품</h6>`);
+    		}
+    		else if(idx==3)
+    		{
+    			$("div.shoplist").html(`<h6 class="alert alert-warning">높은가격순 상품</h6>`);
+    		}
+    		else
+    		{
+    			$("div.shoplist").html(`<h6 class="alert alert-info">상품명순 상품</h6>`);
+    		}
+    		
+    		$.ajax({
+    			type:"get",
+    			dataType:"json",
+    			data:{"idx":idx},
+    			url:"./data/listshop.jsp",
+    			success:function(data){
+    				let s = 
+    					`
+    					<b>총 ${data.length}개의 상품이 있습니다</b>
+    					`;
+    					//상품목록 출력
+    					s +=
+    						`
+    						<table class="table table-striped">
+    							<tr class="table-danger">
+    								<th width="50">번호</th>
+    								<th width="150">상품명</th>
+    								<th width="70">색상</th>
+    								<th width="100">가격</th>
+    								<th width="80">상세보기</th>
+    								<th>삭제</th>
+    							</tr>
+    						`;
+    					$.each(data,function(idx,ele){
+    						s += 
+    							`
+    							<tr>
+    								<td align="center">${idx+1}</td>
+    								<td>
+    									<img src="${ele.sphoto}" class="smallphoto">
+    									${ele.sname}
+    								</td>
+    								<td>
+										<div style="background-color:${ele.scolor}" class="colorbox">
+											
+										</div>
+    								</td>
+    								<td align="right">${ele.sprice}원</th>
+    								<td>
+    									<button type="button" class="btn btn-success btn-sm btndetail"
+    									shopidx="${ele.shopidx}"
+    									data-bs-toggle="modal" data-bs-target="#myModalUpdate">Detail</button>
+    								</td>
+    								<td>
+										<button type="button" class="btn btn-danger btn-sm btndelete"
+										shopidx="${ele.shopidx}">Delete</button>
+									</td>
+								</tr>
+								`;
+    								
+    					});
+    					
+    					s +="</table>";
+    					
+    					$("div.shoplist").append(s);
+    			}
+    		});
+    	}
+    </script>
+</head>
+<div class="modal" id="myModalUpdate">
+  		<div class="modal-dialog modal-sm">
+    		<div class="modal-content">
+	
+      <!-- Modal Header(title) -->
+      	<div class="modal-header">
+        	<h4 class="modal-title">Detail</h4>
+        	<button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      	</div>
+
+      	<!-- Modal body -->
+      	<div class="modal-body">
+			<div class="asd">
+			
+			</div>
+      	</div>
+
+     	 <!-- Modal footer -->
+      	<div class="modal-footer">
+       		<button type="button" class="btn btn-danger" data-bs-dismiss="modal" id="btnsave2">종료</button>
+      	</div>
+      	</div>
+  </div>
+</div>
+<body>
+	
+      	
+	<div style="margin: 10px;">
+		<h5 class="formtitle alert alert-success">
+			<i class="bi bi-pencil-fill"></i>
+			상품등록하기
+		</h5>
+		<div class="shopform" style="width: 300px;">
+			<form id="shopfrm">
+			<table class="table table-bordered">
+				<caption align="top"><b>상품 등록</b></caption>
+				<tr>
+					<th width="100"  class="table-danger">상품명</th>
+					<td>
+						<input type="text" name="sname" id="sname" class="form-control"
+						required="required">
+					</td>
+				</tr>
+				<tr>
+					<th width="100" class="table-danger">상품가격</th>
+					<td>
+						<input type="text" name="sprice" id="sprice" class="form-control"
+						required="required">
+					</td>
+				</tr>
+				<tr>
+					<th width="100"  class="table-danger">상품갯수</th>
+					<td>
+						<input type="number" name="scount" id="scount" class="form-control"
+						min="1" max="5" step="1" value="1">
+					</td>
+				</tr>
+				<tr>
+					<th width="100"  class="table-danger">상품색상</th>
+					<td>
+						<input type="color" name="scolor" id="scolor" class="form-control"
+						value="#ccffff">
+					</td>
+				</tr>
+				<tr>
+					<th width="100"  class="table-danger">상품사진</th>
+					<td>
+						<select name="sphoto" id="sphoto" class="form-select">
+							<script type="text/javascript">
+								let s;
+								for(let i=1;i<=34;i++)
+								{
+									s = 
+										`
+										<option value='../shop/${i}.${i==24?"gif":"jpg"}'>
+										상품번호 ${i}
+										</option>
+										`;
+										
+										document.write(s);
+								}
+							</script>
+						</select>
+						<img src="../shop/1.jpg" class="photo">
+						<script type="text/javascript">
+							//사진을 선택하면 이미지가 바뀌도록 이벤트 추가
+							$("#sphoto").change(function(){
+								$(".photo").attr("src",$(this).val());
+							});
+						</script>
+					</td>
+				</tr>
+				<tr>
+					<td colspan="2" align="center">
+						<button type="submit" class="btn btn-secondary">DB에 저장</button>
+					</td>
+				</tr>
+			</table>
+		</form>
+		</div>
+		</div>
+		<hr>
+		<div class="buttons">
+			<button type="button" class="btn btn-sm btn-secondary" id="btn1">등록순</button>
+			<button type="button" class="btn btn-sm btn-secondary" id="btn2">낮은가격순</button>
+			<button type="button" class="btn btn-sm btn-secondary" id="btn3">높은가격순</button>
+			<button type="button" class="btn btn-sm btn-secondary" id="btn4">상품명순</button>
+		</div>
+		<div class="shoplist" style="width: 500px;">
+			출력
+		</div>
+	</div>
+</body>
+</html>

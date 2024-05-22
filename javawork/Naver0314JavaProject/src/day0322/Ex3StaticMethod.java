@@ -34,9 +34,12 @@ class MyShop
 	public void setData(String sangpum,int su,int dan)
 	{
 		//메서드안에서 같은 멤버 메서드는 this 로 호출이 가능
-		this.setSangpum(sangpum);
-		this.setSu(su);
-		this.setDan(dan);
+//		this.setSangpum(sangpum);
+//		this.setSu(su);
+//		this.setDan(dan);
+		this.sangpum=sangpum;
+		this.su=su;
+		this.dan=dan;
 	}
 	//overloading method(중복함수):메서드명은 같으나 인자가 달라야한다
 	public void setData(String sangpum,int su,int dan,String message)
@@ -72,6 +75,7 @@ public class Ex3StaticMethod {
 		MyShop sang3=new MyShop();
 		
 		System.out.println("** 상품 1 **");
+		sang1.setData("딸기", 3, 2300);
 		sang1.setSangpum("딸기");
 		sang1.setSu(3);
 		sang1.setDan(2300);

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	 <!-- <bean id="ktire" class="anno.study.ex4.KoreaTire"></bean>
+	 <bean id="ctire" class="anno.study.ex4.CanadaTire"></bean> -->
+	 
+	 <!-- <bean id="car" class="anno.study.ex4.Car">
+	 	<constructor-arg ref="ktire"></constructor-arg>
+	 	<property name="CarName" value="벤츠"></property>
+	 </bean> -->
+	 
+
+	<!-- <bean id="hello" class="anno.study.ex4.Hello"></bean>  -->
+	
+	<!--
+		어노테이션 사용시 해당 패키지 등록시 * 와일드카드 사용가능
+		여러개 패키지 등록시 (,)로 여러개 등록가능 
+	-->
+	<context:component-scan base-package="anno.study.ex4"></context:component-scan>
+</beans>

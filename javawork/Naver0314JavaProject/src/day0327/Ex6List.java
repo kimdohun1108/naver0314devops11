@@ -28,6 +28,7 @@ public class Ex6List {
 					list2.add(s);
 				}
 				
+				
 				System.out.println("=".repeat(20));
 				System.out.println("list1 데이타 갯수:"+list1.size());
 				//System.out.println("list1의 할당된 갯수 : "+((Vector<String>)list1).capacity());//capacity 는 오버라이드 메서드가 아니고 Vector가 갖구있는 메서드임
@@ -35,6 +36,8 @@ public class Ex6List {
 				System.out.println("list2 데이타 갯수:"+list2.size());
 				//System.out.println("list3의 할당된 갯수 : "+((Vector<String>)list2).capacity());//capacity 는 오버라이드 메서드가 아니고 Vector가 갖구있는 메서드임
 
+				list1.remove(2);
+				//list1.remove("blue");
 				System.out.println("** 출력 1 **");
 				for(String s:list1)
 					System.out.println(s);

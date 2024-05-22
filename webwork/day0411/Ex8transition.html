@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #ex1,#ex2{
+            background-color: paleturquoise;
+            width: 120px;
+            height: 20px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        #ex1:hover, #ex2:hover{
+            width: 350px;
+        }   
+
+        /* width 변경시 효과 */
+        #ex1{
+            transition-property: width;
+            transition-duration: 2s;/*2초동안 효과 유지*/
+        }
+        
+        #ex2{
+            /* transition-property: width;
+            transition-duration: 3s;3초동안 효과 유지 */
+            transition-duration: 4s; /*transition-property: width; 생략가능*/
+        }
+
+        #ex3 img{
+            width: 120px;
+            opacity: 0.2;
+            border: 5px solid pink;
+            transform: rotate(15deg);
+            cursor: pointer;
+            transition: all 3s;
+        }
+
+        /* 이미지에 마우스를 올리면 3개의 속성이 모두 변하면서 transition이 적용된다 */
+        #ex3 img:hover{
+            opacity: 1.0;
+            border-color: gray;
+            transform: rotate(45deg);
+        }
+    </style>
+</head>
+<body>
+    <!-- 
+        트렌지션(transition)은 자바스크립트를 사용하지 않고  CSS만 이용하여 애니메이션을 구현하는 방법중 하나로
+        특정 CSS속성 값을 일정 시간 동안 변경되도록 할 수 있는 속성이다.
+
+        transition-property은 트랜지션 이벤트를 적욜할 CSS속성을 지정하기 위해 사용되는 속성이다
+        기본값은 all으로 모든 속성에 트렌지션 이벤트가 적용된다
+
+        transition-duration은 트렌지션 이벤트를 실행할 시간을 지정하기 위해 사용되는 속성이다
+        transition-deley는 트렌지션 이벤트를 바로 실행시키지 않고 자연시키고자 하는 경우에 사용하는 속성이다
+     -->
+     <p id="ex1">Transition Teat #1!!</p>
+     <p id="ex2">Transition Teat #2!!</p>
+     <p id="ex3"><img src="../img/jquery_image/03.png" alt=""></p>
+</body>
+</html>

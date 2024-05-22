@@ -39,9 +39,10 @@ class MyFrame extends JFrame
 		@Override
 		public void windowClosed(WindowEvent e) {
 			// TODO Auto-generated method stub
-			
+			System.out.println("종료 발생");
 		}
-
+		
+		//-버튼
 		@Override
 		public void windowIconified(WindowEvent e) {
 			// TODO Auto-generated method stub

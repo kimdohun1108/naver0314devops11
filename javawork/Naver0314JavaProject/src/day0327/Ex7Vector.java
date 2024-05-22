@@ -17,7 +17,7 @@ import java.util.Vector;
  */
 public class Ex7Vector {
 	Scanner sc=new Scanner(System.in);
-	List<String> list=new Vector<String>();
+	List<String> list=new Vector<>();
 	static final String FILENAME="d:/naver0314/person.txt";
 	
 	public Ex7Vector() {

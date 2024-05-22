@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 여러개 쓰면 배열로 됨 -->
+<data>
+	<name no="100" color="orange">강호동</name>
+	<addr>서울시 강남구</addr>
+	<age>23세</age>
+</data>

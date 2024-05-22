@@ -7,14 +7,13 @@ package day0326;
 //추상클래스를 상속받는 서브 클래스는 반드시 추상 메서드를 오버라이드해야만 하는데
 //만약 오버라이드하지 않았을경우 서브클래스 역시 추상화시킨다
 abstract class Animal
-{
+{	
+	abstract public void sound();
+	//추상 클래스에는 추상 메서드뿐 아니라 일반 메서드도 포함할수 있다
 //	public void sound()
 //	{
 //		System.out.println("딱히 하는일이 없음");
 //	}
-	
-	abstract public void sound();
-	//추상 클래스에는 추상 메서드뿐 아니라 일반 메서드도 포함할수 있다
 	public void showTitle()
 	{
 		System.out.println("추상 클래스 공부중!!");
@@ -26,7 +25,7 @@ class Dog extends Animal
 	@Override
 	public void sound() {
 		// TODO Auto-generated method stub
-		//super.sound();
+//		super.sound();
 		System.out.println("멍멍!!!");
 	}
 }
@@ -46,7 +45,7 @@ class Cat extends Animal
 	@Override
 	public void sound() {
 		// TODO Auto-generated method stub
-		//super.sound();
+		//super.sound(); 
 		System.out.println("야옹야옹!!!");
 	}
 }

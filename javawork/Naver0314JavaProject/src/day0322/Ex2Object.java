@@ -42,6 +42,9 @@ public class Ex2Object {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
+//		String name;
+//		int age;
+		
 		Orange or=new Orange();
 		System.out.println("초기값 확인");
 		System.out.println("name:"+or.getName());

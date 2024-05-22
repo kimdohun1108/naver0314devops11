@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<bean id="a" class="study.ex3.Person">
+		<!-- 생성자로 받으면 : constructor-arg -->
+		<constructor-arg value="김도훈"></constructor-arg>
+		<!-- set으로 받으면 : property -->
+		<property name="phone" value="010-1111-1111"></property>
+	</bean>
+	
+	<bean id="b" class="study.ex3.MyCart" scope="prototype"> <!-- 생략시 : singleton -->
+		<constructor-arg value="블라우스"></constructor-arg>
+		<constructor-arg value="12000"></constructor-arg>
+		<property name="person" ref="a"></property>
+	</bean>
+</beans>

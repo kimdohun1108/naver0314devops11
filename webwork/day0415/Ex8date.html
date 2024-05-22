@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function()
+        {
+            setInterval(function(){ 
+                //1000 : 1초
+                //1초단위로 함수가 호출 
+                //선언 해줘야함
+                let date = new Date();
+                let hh = date.getHours();
+                let mm = date.getMinutes();
+                let ss = date.getSeconds();
+                document.getElementById("timer").innerHTML = `${hh}:${mm}:${ss}`;
+            },1000);
+        }
+    </script>
+</head>
+<body>
+    <h1>
+        오늘 날짜 : 
+        <script>
+            let date = new Date();
+            let y = date.getFullYear();//년도 4글자 반환 (java처럼 +1900 안해도됨)
+            let m = date.getMonth()+1;//0~11
+            let d = date.getDate();
+
+            document.write(`${y}-${m}-${d}`);
+        </script>
+    </h1>
+    <h1>
+        현재 시간 :
+        <script>
+            let hh = date.getHours();
+            let mm = date.getMinutes();
+            let ss = date.getSeconds();
+            document.write(`${hh}:${mm}:${ss}`);
+        </script>
+    </h1>
+    <h1 id="timer">
+        현재 시간(실시간) :
+        <script>
+            document.write(`${hh}:${mm}:${ss}`);
+        </script>
+    </h1>
+</body>
+</html>

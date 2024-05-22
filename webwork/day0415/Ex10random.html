@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function()
+        {
+            let car = document.getElementById("car");
+
+            setInterval(function(){
+                //1~15사이 난수 발생
+                let n = parseInt(Math.random()*15)+1;
+                //이미지명
+                let s = `../img/mycar/mycar${n}.png`;
+                //사진변경
+                car.setAttribute("src",s);
+            },1000);//1초마다
+        }
+    </script>
+</head>
+<body>
+    <h2>5개의 random() 값 발생</h2>
+    <script>
+        for(let i=1;i<=5;i++)
+        {
+            let r = Math.random();
+            document.write(r+"<br>");
+        }
+    </script>
+    <hr>
+    <h2>5개의 정수로 random() (0~9) 값 발생</h2>
+    <script>
+        for(let i=1;i<=5;i++)
+        {
+            let r = parseInt(Math.random()*10);
+            document.write(r+"<br>");
+        }
+    </script>
+    <hr>
+    <h2>5개의 정수로 random() (0~99) 값 발생</h2>
+    <script>
+        for(let i=1;i<=5;i++)
+        {
+            let r = parseInt(Math.random()*100);
+            document.write(r+"<br>");
+        }
+    </script>
+    <hr>
+    <h2>5개의 정수로 random() (1~10) 값 발생</h2>
+    <script>
+        for(let i=1;i<=5;i++)
+        {
+            let r = parseInt(Math.random()*10)+1;
+            document.write(r+"<br>");
+        }
+    </script>
+    <hr>
+    <h2>1~15사이의 난수를 발생해서 1초마다 자동차가 바뀌도록 하기</h2>
+    <img src="../img/mycar/mycar1.png" id="car" width="300">
+</body>
+</html>

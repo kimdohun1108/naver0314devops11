@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- Myinfo : 생성자 주입 -->
+	<bean id="my" class="study.ex2.Myinfo">
+		<constructor-arg value="손미나"></constructor-arg>
+		<constructor-arg value="23"></constructor-arg>
+		<constructor-arg>
+			<value>서울시 강남구 도곡동 무지개 아파트 1004동 1004호</value>
+		</constructor-arg>
+	</bean>
+	
+	<!-- Student -->
+	<bean id="stu" class="study.ex2.Student">
+		<constructor-arg ref="my"></constructor-arg>
+		<property name="schoolName" value="강남고등학교"></property>
+	</bean>
+</beans>

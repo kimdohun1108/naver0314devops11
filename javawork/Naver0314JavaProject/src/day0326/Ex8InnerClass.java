@@ -25,7 +25,7 @@ class OuterClass
 		static int f=60;
 		public void show()
 		{
-			//System.out.println("a="+a);//static 내부 클래스에서는 외부클래스의 인스턴스변수는 접근 불가
+			System.out.println("a="+a);//static 내부 클래스에서는 외부클래스의 인스턴스변수는 접근 불가
 			System.out.println("b="+b);
 			System.out.println("e="+e);
 			System.out.println("f="+f);		

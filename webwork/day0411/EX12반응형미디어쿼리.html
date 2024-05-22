@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Black+Han+Sans&family=Bungee+Spice&family=Dokdo&family=Gugi&family=Jua&family=Nanum+Brush+Script&display=swap" rel="stylesheet">
+    <style>
+        h1{
+            font-family: 'Alfa Slab One';
+        }
+        /* 1024 이상인경우 */
+        @media all and (min-width:1024px){
+            body{
+                background-color: aquamarine;
+                background-size: 150px 150px;
+                background-image: url('../img/snoopyAvata/s1.JPG');
+                background-repeat: no-repeat;
+                h1{
+                    color: palevioletred;
+                }
+            }
+        }
+        /* 761~1023 인경우 */
+        @media all and (min-width:761px) and (max-width:1023px){
+            body{
+                background-color: orange;
+                background-size: 150px 150px;
+                background-image: url('../img/talent/12.jpg');
+                background-repeat: no-repeat;
+                h1{
+                    color: yellow;
+                }
+            }
+        }
+        /* 0~760 인경우 */
+        @media all and (max-width:760px){
+            body{
+                background-color: white;
+                background-size: 150px 150px;
+                background-image: url('../img/mycar/mycar12.png');
+                background-repeat: no-repeat;
+                h1{
+                    color: blue;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>반응형테스트</h1>
+</body>
+</html>

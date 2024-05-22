@@ -31,6 +31,7 @@ public class Ex3RandomGame {
 			  {
 				  System.out.print(++count+"회 :");
 				  su=Integer.parseInt(sc.nextLine());
+				  //su = sc.nextInt();
 				  if(su>rnd)
 					  System.out.println("\t"+su+"보다 작습니다");
 				  else if(su<rnd)

@@ -20,7 +20,7 @@ public class Ex6CallByReference {
 		Stu s=new Stu();
 		System.out.println(s.name+","+s.blood+","+s.age);
 		changeStu(s);//Call By Reference : 주소가 전달
-		System.out.println("메서드 호출후 다시 출력");
+		System.out.println("메서드 호출후 다시 출력");//클래스는 가능
 		System.out.println(s.name+","+s.blood+","+s.age);
 	}
 

@@ -26,7 +26,7 @@ public class Ex6ArrayLotto {
 		 */
 		while(true)
 		{
-			System.out.println("로또 구입 금액은?");
+			System.out.println("로또 구입 금액은?(종료:0)");
 			money=sc.nextInt();
 			if(money==0)
 			{

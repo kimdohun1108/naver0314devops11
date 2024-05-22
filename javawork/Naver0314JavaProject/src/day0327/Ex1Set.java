@@ -1,5 +1,6 @@
 package day0327;
 
+import java.util.HashSet;
 import java.util.Iterator;
 import java.util.Set;
 import java.util.TreeSet;
@@ -18,7 +19,7 @@ public class Ex1Set {
 		//<Integer> :제네릭, 해당 컬렉션에는 Integer 타입만 넣을수 있다,다른타입을 넣을경우 컴파일오류 발생
 		//Set<Integer> set1=new HashSet<Integer>();
 		//Set<Integer> set1=new HashSet<>();//뒷부분 제네릭은 생략가능
-		Set<Integer> set1=new TreeSet<>();
+		Set<Integer> set1=new HashSet<>();
 		set1.add(100);//JDK5이전에는 set1.add(new Integer(100));
 		set1.add(78);
 		set1.add(78);
@@ -31,6 +32,7 @@ public class Ex1Set {
 		{
 			System.out.println(n);
 		}
+		
 		System.out.println("** 출력 2 **");
 		Iterator<Integer> iter=set1.iterator();
 		while(iter.hasNext())

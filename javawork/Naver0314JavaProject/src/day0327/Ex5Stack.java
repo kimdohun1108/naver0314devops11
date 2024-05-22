@@ -8,7 +8,7 @@ public class Ex5Stack {
 		// TODO Auto-generated method stub
 		//List 인터페이스를 구현한 클래스중 하나
 		//LIFO  방식:먼저 들어간게 나중에 나오는 방식
-		Stack<String> stack1=new Stack<String>();		
+		Stack<String> stack1=new Stack<>();		
 		//List<String> stack1=new Stack<String>();//push 는 오버라이드 메서드가 아님		
 		stack1.push("사과");
 		stack1.push("바나나");
@@ -16,12 +16,26 @@ public class Ex5Stack {
 		stack1.push("오렌지");
 		stack1.push("딸기");
 
+		System.out.println(stack1.get(1));
 		System.out.println("총 갯수 : "+stack1.size());
 
+		for(String n:stack1)
+		{
+			System.out.println(n);
+		}
+//		stack1.pop();
+//		System.out.println("총 갯수 : "+stack1.size());
+//
+//		for(String n:stack1)
+//		{
+//			System.out.println(n);
+//		}
+		System.out.println("=".repeat(30));
 		while(!stack1.isEmpty())
 		{
 			System.out.println(stack1.pop());//마지막으로 추가한 딸기가 먼저 출력됨
 		}
+		System.out.println("총 갯수 : "+stack1.size());
 	}
 
 }

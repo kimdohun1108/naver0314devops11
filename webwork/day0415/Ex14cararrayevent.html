@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="carlist">
+        <script>
+            for(let i=1;i<=15;i++)
+            {
+                let s = `<img src="../img/mycar/mycar${i}.png" width=60 height=50 hspace=3 class="car" style="cursor:pointer">`;
+                document.write(s);
+            }
+        </script>
+    </div>
+    <div style="margin-top: 30px;">
+        <!-- 기본 이미지 -->
+        <img class="largecar" src="" width="350" style="border: 7px inset gold;" onerror="this.src='../img/div_img/bottle01.jpg'">
+    </div>
+    <script>
+        // 자동차 작은 이미지에 마우스를 올리면 큰이미지가 해당 이미지로 변경되도록 이벤트 주세요
+        //let car = document.getElementsByClassName("car");
+        let car = document.querySelectorAll(".car");//배열타입(class가 "car"인 요소값들)
+        for(let p of car)
+        {
+            p.onmouseover = function()
+            {
+                let src = this.getAttribute("src");
+                //getElementsByClassName는 반환값이 배열이므로 1개일 경우 0번지의 값을 변경하면된다
+                document.getElementsByClassName("largecar")[0].setAttribute("src",src);
+            }
+        }
+    </script>
+</body>
+</html>

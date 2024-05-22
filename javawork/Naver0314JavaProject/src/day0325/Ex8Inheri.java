@@ -6,7 +6,7 @@ class Phone2
 	private String color;
 	
 	public Phone2(String model, String color) {
-		super();
+//		super();
 		this.model = model;
 		this.color = color;
 	}
@@ -41,7 +41,7 @@ class SmartPhone2 extends Phone2
 	{
 		System.out.println("모델명 : "+this.getModel());
 		System.out.println("색상 : "+this.getColor());
-		System.out.println("와이파이 : "+wifi);
+		System.out.println("와이파이 : "+wifi);//같은 함수에 있으면 get함수로 return 안해도 반환 가능
 		System.out.println();
 	}
 }

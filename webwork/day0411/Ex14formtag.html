@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            width: 700px;
+            border-collapse: collapse;
+            border: 3px solid gray;
+        }
+
+        tr,td,th{
+            border: 1px solid gray;
+        }
+    </style>
+</head>
+<body>
+    <h2>HTML5 폼태그들</h2>
+    <table>
+        <tr>
+            <th width="100">text</th>
+            <td>
+                <input type="text" value="hello">
+            </td>
+        </tr>
+        <th width="100">password</th>
+            <td>
+                <input type="password" value="1234">
+            </td>
+        <tr>
+            <th width="100">checkbox</th>
+            <td>
+                <label><input type="checkbox">운전면허</label>
+            </td>
+        </tr>
+        <tr>
+            <th width="100">radio</th>
+            <td>
+                <!-- html5에서는 그룹설정을 하려면 name을 같게 준다 -->
+                <label><input type="radio" name="gender">남자</label>
+                <label><input type="radio" name="gender">여자</label>
+            </td>
+        </tr>
+        <tr>
+            <th width="100">number</th>
+            <td>
+                <input type="number" min="0" max="10" step="2" value="6">
+            </td>
+        </tr>
+        <tr>
+            <th width="100">color</th>
+            <td>
+                <input type="color" value="#cf1234">
+            </td>
+        </tr>
+        <tr>
+            <th width="100">date</th>
+            <td>
+                <input type="date" value="2024-04-11">
+            </td>
+        </tr>
+        <tr>
+            <th width="100">button</th>
+            <td>
+                <input type="button" value="버튼1">
+                &nbsp;
+                <button type="button">버튼2</button>
+                <!-- 둘다가능 -->
+            </td>
+        </tr>
+        <tr>
+            <th width="100">select</th>
+            <td>
+                <select name="" id="">
+                     <!-- hidden disabled selected : 선택 할수없게-->
+                    <option hidden disabled selected>select value</option>
+                    <option value="">사과</option>
+                    <option value="">딸기</option>
+                    <option value="">망고</option>
+                    <option value="">수박</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th width="100">select</th>
+            <td>
+                <!-- multiple : 여러개 선택 가능 -->
+                <select size="5" multiple>
+                    <option>java</option>
+                    <option value="">HTML5</option>
+                    <option value="">javascript</option>
+                    <option value="">springboot</option>
+                    <option value="">mysql8</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <th width="100">progress</th>
+            <td>
+                <progress max="100" value="60"> </progress>
+            </td>
+        </tr>
+    </table>
+</body>
+</html>

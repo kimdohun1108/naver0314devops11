@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>가위바위보 게임</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    h1 {
+        margin-top: 50px;
+    }
+    .choices {
+        align: center;
+    }
+    .result {
+        margin-top: 30px;
+        font-size: 24px;
+    }
+    .ro {
+        background-image: url(../img/ro.jpg);
+        width: 500px;
+        height: 700px;
+        align: center;
+    }
+</style>
+</head>
+<body>
+
+<img src="../img/ro.jpg" style="width: 500px; height: 600px; align-self: center; margin: 100px;"> 
+
+<button onclick="startGame()" id="asd">게임 시작</button>
+
+<div class="choices">
+    <button id="qwe" onclick="playGame('가위')">
+        <img src="../img/food/10.jpg" style="width: 150px; height: 150px;">
+    </button>
+    <button id="qwe" onclick="playGame('바위')">
+        <img src="../img/food/2.jpg" style="width: 150px; height: 150px;">
+    </button>
+    <button id="qwe" onclick="playGame('보')">
+        <img src="../img/food/1.jpg" style="width: 150px; height: 150px;">
+    </button>
+</div>
+
+<div class="result" id="result"></div>
+
+<script>
+    let gameStarted = true;
+function startGame() {
+    //버튼사라지게하는 코드
+    //document.getElementById("asd").style.display = "none";
+    document.getElementById("result").innerText = "카운트다운 시작...";
+    //버튼 비활성화
+    document.getElementById("asd").disabled = true;
+    document.getElementsByClassName("choices").disabled = false;
+   
+    var count = 3;
+    var countdown = setInterval(function() {
+        count--;
+        if (count == 0 && !gameStarted)
+        {
+            clearInterval(countdown);
+            document.getElementById("result").innerText = "시간 초과!!";
+            document.querySelectorAll("button").forEach(function(button) {
+                button.disabled = true;
+            });
+        }
+        else if (gameStarted) 
+        {
+            clearInterval(countdown);
+        }
+        else 
+        {
+            document.getElementById("result").innerText = "카운트다운: " + count;
+        }
+    }, 1000);
+}
+
+function playGame(userChoice) {
+    var choices = ["가위", "바위", "보"];
+    var computerChoice = choices[Math.floor(Math.random() * 3)];
+    var result;
+
+    if (userChoice === computerChoice) {
+        result = "무승부!";
+        //버튼 활성화
+        document.getElementById("asd").disabled = false;
+        document.getElementsByClassName("choices").disabled = false;
+    } else if (
+        (userChoice === "가위" && computerChoice === "보") ||
+        (userChoice === "바위" && computerChoice === "가위") ||
+        (userChoice === "보" && computerChoice === "바위")
+    ) {
+        result = "당신의 승리!";
+        //버튼 활성화
+        document.getElementById("asd").disabled = false;
+        document.getElementsByClassName("choices").disabled = false;
+
+    } else {
+        result = "컴퓨터의 승리!";
+    }
+
+    document.getElementById("result").innerText = "당신: " + userChoice + " vs 컴퓨터: " + computerChoice + ". " + result;
+}
+</script>
+
+</body>
+</html>

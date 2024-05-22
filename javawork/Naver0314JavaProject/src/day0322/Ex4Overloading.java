@@ -45,16 +45,17 @@ public class Ex4Overloading {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		System.out.println(Oper.sum(5, 100));
-		System.out.println(Oper.sum(1.2,5.6));
-		System.out.println(Oper.sum("apple", "banana"));
+		Oper op = new Oper();
+		System.out.println(Oper.sum(5, 100)); //Oper.sum == op.sum
+		System.out.println(op.sum(1.2,5.6));
+		System.out.println(op.sum("apple", "banana"));
 		
 		System.out.println("총합계:"+Oper.hap(3,6,8));
 		System.out.println("총합계:"+Oper.hap(78,90,100,88,56));
 		
 		Oper.writeColor("red");
 		Oper.writeColor("yellow","gray","blue");
-		Oper.writeColor("빨강색","분홍색","검정색","초록색","보라색");
+		op.writeColor("빨강색","분홍색","검정색","초록색","보라색");
 	}
 
 }

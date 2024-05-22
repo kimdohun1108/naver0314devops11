@@ -48,6 +48,9 @@ public class Ex8Constructor {
 		
 		Kiwi k3=new Kiwi("영숙이", "부산");
 		k3.show();
+		
+		Kiwi k4=new Kiwi();
+		k4.show();
 	}
 
 }

@@ -41,11 +41,23 @@ public class Ex8String {
 		System.out.println(str1.endsWith("day"));//str1 이 day 로 끝날경우 true: false
 		System.out.println(str1.toLowerCase().endsWith("day"));//str1을 소문자로 변환후 day 로 끝나는지 비교 : true
 		
+		System.out.println("=".repeat(60));
+		
 		//compareTo 로 비교시
 		System.out.println("apple".compareTo("append"));//'l','e' : 7(양수:첫문자열이 더 크다),첫문자열이 작을경우 음수가 나온다
 		System.out.println("apple".compareTo("banana"));//'a','b' 비교 : -1
 		System.out.println("apple".compareTo("apple"));//완전히 같을경우 0
 		System.out.println("computer".compareTo("apple"));//첫문자열이 더 클경우 2
+		if(str2.compareTo(str3)>0)
+		{
+			System.out.println(str3);
+		}
+		else
+		{
+			System.out.println(str2);
+		}
+		
+		System.out.println("=".repeat(60));
 		
 		//반복
 		System.out.println(str2.repeat(3));
