@@ -1,3 +1,4 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
@@ -19,10 +20,47 @@
    </style>
 </head>
 <body>
-<img src="<%=request.getContextPath()%>/mycar/mycar13.png" width="100">
-
-<h3 class="alert alert-success">
+<h2 class="alert alert-danger" style="width: 500px;">
 	총 ${totalCount}명의 회원이 있습니다
-</h3>
+	<span style="float: right;">
+		<button type="button" class="btn btn-sm btn-success"
+		onclick="location.href='./form'">멤버등록</button>
+	</span>
+</h2>
+<!-- admin이 아닌 계정으로 로그인을 했거나 로그인 상태가 아닐경우 보여질 메세지 -->
+<c:if test="${sessionScope.loginok!=null and sessionScope.loginid=='admin' }">
+	<h2>
+		<b>전체 회원 명단은 관리자만 확인 가능합니다</b>
+	</h2>
+</c:if>
+<!--  admin 계정으로 로그인시에만 전체명단을 확인할수있다 -->
+<c:if test="${sessionScope.loginok!=null and sessionScope.loginid=='admin' }">
+<table class="table table-striped" style="width: 500px;">
+	<caption align="top">
+		<h3><b>회원명단</b></h3>
+	</caption>
+	<tr class="table-danger">
+		<th width="50">번호</th>
+		<th width="120">회원명</th>
+		<th width="100">아이디</th>
+		<th width="140">핸드폰</th>
+		<th>상세보기</th>		
+	</tr>
+	<c:forEach var="dto" items="${list}" varStatus="i">
+		<tr>
+			<td align="center">${i.count}</td>
+			<td>
+								${dto.name}
+			</td>
+			<td>${dto.myid}</td>
+			<td>${dto.hp}</td>
+			<td align="center">
+				<button type="button" class="btn btn-sm btn-info"
+				onclick="location.href='./detail?num=${dto.num}'">Detail</button>
+			</td>
+		</tr>
+	</c:forEach>
+</table>
+</c:if>
 </body>
 </html>

@@ -4,10 +4,11 @@ server:
   
 #jsp setting
 spring:
-  mvc:
-    view:
-      prefix: /WEB-INF/
-      suffix: .jsp
+#포워드를 jsp에서 tiles로 변경했으므로 주석처리
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/
+#      suffix: .jsp
       
 #mysql setting
   datasource:

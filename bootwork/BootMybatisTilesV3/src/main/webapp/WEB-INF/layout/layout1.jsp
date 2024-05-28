@@ -2,6 +2,7 @@
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
+<%@taglib prefix="tiles" uri="http://tiles.apache.org/tags-tiles" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,9 +17,62 @@
        body *{
            font-family: 'Jua';
        }
+       
+       div.mainlayout>div{
+       	   /* border: 1px solid gray; */
+       	   position: absolute;
+       }
+       
+       div.mainlayout>div a{
+       	   text-decoration: none;
+       	   color: black;
+       }
+       
+       div.mainlayout>div.header{
+       	   width: 100%;
+       	   height: 100px;
+       	   line-height: 100px;
+       	   font-size: 35px;
+       	   text-align: center;
+       }
+       
+       div.mainlayout>div.menu{
+       	   top: 100px;
+       	   width: 100%;
+       	   height: 80px;
+       	   line-height: 80px;
+       }
+       
+       div.mainlayout>div.info{
+       	   top: 300px;
+       	   left: 50px;
+       	   width: 200px;
+       	   height: 200px;
+       }
+       
+       div.mainlayout>div.main{
+       	   top: 210px;
+       	   left: 300px;
+       	   width: 800px;
+       	   height: auto;
+       }
    </style>
 </head>
 <body>
-	layout1
+	<div class="mainlayout">
+		<div class="header">
+			<!-- tiles는 웹페이지 1개에서 영역을 나누어 변하게 하는 태그 -->
+			<tiles:insertAttribute name="header"/>
+		</div>
+		<div class="menu">
+			<tiles:insertAttribute name="menu"/>
+		</div>
+		<div class="info">
+			<tiles:insertAttribute name="info"/>
+		</div>
+		<div class="main">
+			<tiles:insertAttribute name="main"/>
+		</div>
+	</div>
 </body>
 </html>

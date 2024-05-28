@@ -19,6 +19,9 @@
    </style>
 </head>
 <body>
-	header
+	<c:set  var="root" value="<%=request.getContextPath()%>"/>
+	<img src="${root }/mycar/mycar13.png" width="50">
+	<a href="${root }/">스프링부트와 jsp를 이용한 프로젝트</a>
+	<!-- 절대경로로 계속 화면에 떠있는 효과? -->
 </body>
 </html>

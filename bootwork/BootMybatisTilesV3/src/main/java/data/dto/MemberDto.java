@@ -8,12 +8,13 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.RequiredArgsConstructor;
 
 @NoArgsConstructor
-@Data
 @Alias("MemberDto")
 @Builder
 @AllArgsConstructor
+@Data
 public class MemberDto {
 	private int num;
 	private String name;
@@ -25,4 +26,5 @@ public class MemberDto {
 	private String photo;
 	private String birthday;
 	private Timestamp gaipday;
+	
 }

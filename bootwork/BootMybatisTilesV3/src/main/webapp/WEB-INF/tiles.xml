@@ -10,6 +10,7 @@
 		<put-attribute name="main" value="/WEB-INF/layout/main.jsp"></put-attribute>
 	</definition>
 	<!-- macro -->
+	<!-- 와일드카드 -->
 	<definition name="*/*" extends="mainLayout">
 		<put-attribute name="main" value="/WEB-INF/{1}/{2}.jsp"></put-attribute>
 	</definition>
