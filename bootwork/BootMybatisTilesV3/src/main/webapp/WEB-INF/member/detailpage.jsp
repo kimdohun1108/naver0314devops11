@@ -17,6 +17,7 @@
            font-family: 'Jua';
        }
    </style>
+   <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"></c:set>
    <script type="text/javascript">
    		$(function(){
    			//사진변경 이벤트
@@ -42,7 +43,7 @@
    					success:function(data){
    						//spring에서 {"photoname":"파일명"} 보냄
    						//프로필 사진 변경(db 변경후 업로드된 사진 파일명을 반환받는것으로 변경)
-   						$("#photo").attr("src","../img/"+data.photoname);
+   						$("#photo").attr("src","${stpath}/"+data.photoname);
    					}
    				});
    			});
@@ -57,7 +58,7 @@
 		</caption>
 		<tr>
 			<td width="200">
-				<img src="${root }/static/mycar/${dto.photo }" id="photo" class="round-circle" style="width: 150px; border: 1px soild black;">
+				<img src="${stpath}/${dto.photo}" id="photo" class="round-circle" style="width: 300px; border: 1px soild black;">
 				<br>
 				<br>
 				<input type="file" id="photoupload" style="display: none;">

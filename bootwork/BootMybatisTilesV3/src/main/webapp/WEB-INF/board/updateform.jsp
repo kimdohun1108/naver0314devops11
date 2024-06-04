@@ -43,7 +43,7 @@
 			<tr>
 				<th width="100" class="table-warning">사진</th>
 				<td>
-					<img src="../save/${dto.uploadphoto }" id="showimg">
+					<img src="${stpath }/${dto.uploadphoto }" id="showimg">
 					<b>사진을 선택하지 않으면 기존사진이 유지됨</b><br>
 					<input type="file" name="upload" id="upload"class="form-control">
 				</td>

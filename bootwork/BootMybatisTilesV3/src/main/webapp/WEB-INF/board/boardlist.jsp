@@ -49,17 +49,19 @@ body * {
 		</c:if>
 		<c:forEach var="dto" items="${list }">
 			<tr>
-				<td>${no } <c:set var="no" value="${no-1 }"></c:set>
+				<td>${no }<c:set var="no" value="${no-1 }"></c:set>
 				</td>
 				<!-- 제목 -->
-				<td><a href="./detail?num=${dto.num }&currentPage=${currentPage}"> <!-- relrvel 한개당 두칸뛰기 -->
+				<td><a
+					href="./detail?num=${dto.num }&currentPage=${currentPage}"> <!-- relrvel 한개당 두칸뛰기 -->
 						<c:forEach begin="1" end="${dto.relevel }">
 							&nbsp;&nbsp;
 						</c:forEach> <!-- 답글일경우 답글 이미지 --> <c:if test="${dto.restep>0 }">
 							<img src="../img/re.png">
-						</c:if> <!-- 제목 --> ${dto.subject }
-						<c:if test="${dto.uploadphoto!='no'}">
+						</c:if> <!-- 제목 --> ${dto.subject } <c:if test="${dto.uploadphoto!='no'}">
 							<i class="bi bi-image" style="color: gary;"></i>
+						</c:if> <!-- 댓글이 있는 경우만 개수 출력 --> <c:if test="${dto.recount>0 }">
+							<span style="color: red;">(${dto.recount })</span>
 						</c:if>
 				</a></td>
 				<td>${dto.writer}</td>
@@ -93,6 +95,6 @@ body * {
 			<a href="./list?currentPage=${endPage+1}"
 				style="text-decoration: none; color: black;">&gt;</a>
 		</c:if>
-		</div>
+	</div>
 </body>
 </html>

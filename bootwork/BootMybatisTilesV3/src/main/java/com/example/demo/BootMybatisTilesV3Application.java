@@ -6,7 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan({"controller.*","*.member","data.*","tiles.config","com.example.demo"})
+@ComponentScan({"controller.*","*.member","data.*","tiles.config","com.example.demo","naver.cloud"})
 //mapping 해주는 스캔(스캔을 해줘야지만 읽을수가있어요)
 @MapperScan("data.mapper")
 public class BootMybatisTilesV3Application {

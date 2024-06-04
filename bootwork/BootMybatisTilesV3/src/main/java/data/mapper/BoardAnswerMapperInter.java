@@ -11,7 +11,7 @@ import data.dto.BoardAnswerDto;
 
 @Mapper
 public interface BoardAnswerMapperInter {
-	@Insert("insert int boardanswer (num,writer,myid,content,writeday) values (#{num},#{writer},#{myid},#{content},now())")
+	@Insert("insert into boardanswer (num,writer,myid,content,writeday) values (#{num},#{writer},#{myid},#{content},now())")
 	public void insertAnswer(BoardAnswerDto dto);
 	
 	@Select("select * from boardanswer where num=#{num} order by aidx desc")

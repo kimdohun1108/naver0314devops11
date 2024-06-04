@@ -1,5 +1,7 @@
 package controller.board;
 
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,11 +15,15 @@ import lombok.Builder;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.GetMapping;
+
 
 
 //RestController는 ResponseBody 안붙히고 ajax로 보냄
 @RestController
+@RequestMapping("/board")
 public class BoardAnswerController {
 	@Autowired
 	private BoardAnswerService answerService;
@@ -39,6 +45,19 @@ public class BoardAnswerController {
 		BoardAnswerDto dto = BoardAnswerDto.builder().myid(myid).writer(writer).content(content).num(num).build();
 		//db insert
 		answerService.insertAnswer(dto);
+	}
+	
+	@GetMapping("/alist")
+	public List<BoardAnswerDto> alist(
+			@RequestParam int num
+			)
+	{
+		return answerService.getAnswerData(num);
+	}
+	
+	@GetMapping("/adelete")
+	public void deleteAnswer(@RequestParam int aidx) {
+		answerService.deleteAnswer(aidx);
 	}
 	
 }

@@ -1,0 +1,24 @@
+#port setting
+server:
+  port: 1004
+  
+#jsp setting
+spring:
+#포워드를 jsp에서 tiles로 변경했으므로 주석처리
+#  mvc:
+#    view:
+#      prefix: /WEB-INF/
+#      suffix: .jsp
+      
+#mysql setting
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/bit701?serverTimezone=Asia/Seoul
+    username: root
+    password: 1234
+        
+#mybatis setting
+mybatis:
+  type-aliases-package: coffee.dto
+  mapper-locations: 
+  - /mapper/**/*.xml

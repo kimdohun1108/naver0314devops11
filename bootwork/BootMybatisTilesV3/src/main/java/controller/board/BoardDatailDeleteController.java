@@ -9,6 +9,8 @@ import data.dto.MemberDto;
 import data.dto.ReBoardDto;
 import data.service.MemberService;
 import data.service.ReBoardService;
+import naver.cloud.NcpObjectStorageService;
+
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -21,6 +23,7 @@ public class BoardDatailDeleteController {
 	
 	@Autowired
 	private MemberService memberService;
+	
 	
 	@GetMapping("/detail")
 	public String detail(
