@@ -12,40 +12,13 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
    <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-   <style>
-       body *{
-           font-family: 'Jua';
-       }
-   </style>
 </head>
 <c:set var="root" value="<%=request.getContextPath()%>" />
 <script type="text/javascript">
-	$(function(){
-		//로그인 이벤트
-		$("#login").submit(function(e){
-			//폼안의 입력값 읽기
-			let fdata = $(this).serialize();
-			//alert(fdata);
-			$.ajax({
-				type:"get",
-				dataType:"json",
-				url:`${root}/coffee/loginon`,
-				data:fdata,
-				success:function(data){
-					if(data.status != 'success'){
-                        alert("아이디 또는 비밀번호가 맞지 않습니다.");
-                    } else {
-                        // 로그인 성공 시 페이지 이동 등 원하는 동작
-                        alert("로그인 성공!");
-                    }
-				}
-			});
-		});
-	});
+6
 </script>
 <body>
-	login
-	<form action="./loginon" id="login">
+	<%-- <form action="./loginon" id="login">
 		<div>
 			<div>
 				<h4>회원 로그인</h4>
@@ -74,6 +47,48 @@
 				</div>
 			</div>
 		</div>
-	</form>
+	</form> --%>
+	
+	<section class="signin">
+
+    <h1>로그인</h1>
+    <div class="signin__card">
+      <h2>
+        WOODO COFFEE에 오신 것을 환영합니다.
+      </h2>
+      <form action="./loginon" id="login">
+<%--       	<input type="checkbox" name=saveid
+      	${sessionScope.saveid==null or sessionScope.saveid=='no'?"":"checked"}>&nbsp;아이디저장 --%>
+        <input type="text" name="id" value="${sessionScope.saveid!=null and sessionScope.saveid=='yes'?sessionScope.loginid:''}" placeholder="아이디를 입력하세요." />
+        <input type="password" name="passwd" placeholder="비밀번호를 입력하세요." />
+        <input type="submit" value="로그인" />
+        <p>
+          * 비밀번호를 타 사이트와 같이 사용할 경우 도용 위험이 있으니, <br/>
+          정기적으로 비밀번호를 변경하세요!
+        </p>
+      </form>
+    </div>
+
+  </section>
+  <!--FOOTER-->
+  <footer>
+    <div class="inner">
+
+      <ul class="menu">
+        <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
+        <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
+        <li><a href="javascript:void(0)">위치정보 이용약관</a></li>
+      </ul>
+
+      <p class="copyright">
+        &copy; <span class="this-year"></span> 2024 WOODO COFFEE. All Rights Reserved.
+      </p>
+
+    </div>
+  </footer>
+
+  <div id="to-top">
+    <div class="material-icons">arrow_upward</div>
+  </div>
 </body>
 </html>

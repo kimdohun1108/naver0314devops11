@@ -19,5 +19,4 @@ public class MemberDto {
 	private String passwd;
 	private String nick;
 	private String hp;
-	private int count;
 }

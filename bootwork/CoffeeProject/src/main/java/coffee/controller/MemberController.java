@@ -1,6 +1,5 @@
 package coffee.controller;
 
-import java.io.Console;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -12,14 +11,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 
+import coffee.dto.DrinkDto;
 import coffee.dto.MemberDto;
+import coffee.service.DrinkService;
 import coffee.service.MemberService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 
 
@@ -27,6 +27,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 public class MemberController {
 	@Autowired
 	private MemberService memberService;
+	@Autowired
+	private DrinkService drinkService;
 
 	//로그아웃시 호출
 	@ResponseBody
@@ -86,39 +88,38 @@ public class MemberController {
 	}
 	
 	//로그인 이벤트
-	@GetMapping("/coffee/loginon")	
-	public String loginon(
-			@RequestParam(defaultValue = "no") String saveid,
-			@RequestParam String id,
-			@RequestParam String passwd,
-			HttpSession session,
-			Model model
-			)
-	{
-		//로그인 상태
-		boolean loginStatus = memberService.logincheck(id,passwd);
-		String move;
-		System.out.println(loginStatus);
-		
-		if(loginStatus)
-		{
-			//아이디와 비번이 맞는 경우
-			move = "redirect:/";
-			
-			model.addAttribute("status", "success");
-			session.setAttribute("saveid", saveid.equals("no")?"no":"yes");
-			session.setAttribute("loginok", "yes");
-			session.setAttribute("loginid", id);
-		}
-		else
-		{
-			//아이디와 비번이 틀린 경우
-			move="member/memberlogin";
-			model.addAttribute("status", "fail");
-		}
-		
-		return move;
-	}
+	
+	  @GetMapping("/coffee/loginon") 
+	  public String loginon(
+			  						@RequestParam String id,
+			  						@RequestParam String passwd, 
+			  						HttpSession session,
+			  						Model model 
+			  						) 
+	  { 
+		  //로그인 상태
+		  boolean loginStatus = memberService.logincheck(id,passwd); 
+		  String move;
+		  System.out.println(loginStatus);
+	  
+		  if(loginStatus)
+		  {
+			  //아이디와 비번이 맞는 경우
+			  move = "redirect:/";
+			  model.addAttribute("status", "success"); 
+			  session.setAttribute("loginok","yes");
+			  session.setAttribute("loginid", id);
+		  }
+		  else 
+		  { 
+			  //아이디와 비번이 틀린 경우
+			  move="member/memberlogin"; 
+			  model.addAttribute("status", "fail");
+		  }
+	  
+	  return move; 
+	  }
+	 
 	
 	//mypage 호출
 	@GetMapping("/coffee/detail")
@@ -127,14 +128,54 @@ public class MemberController {
 		return "member/memberdetail";
 	}
 	
+	//mypage->정보수정
 	@GetMapping("/coffee/update")
 	public String update(Model model,HttpSession session)
 	{
-		MemberDto dto = memberService.getdatabyid((String)session.getAttribute("loginid"));
-		model.addAttribute("dto",dto);
+		List<MemberDto> list = memberService.getdatabyid((String)session.getAttribute("loginid"));
+		model.addAttribute("list",list);
 		
 		return "id/idupdate";
 	}
+	
+	@GetMapping("/coffee/updateinsert")
+	public String updateinsert(@ModelAttribute MemberDto dto)
+	{
+		memberService.updatemember(dto);
+		
+		return "member/memberdetail";
+	}
+	
+	@ResponseBody
+	@GetMapping("/coffee/delete")	
+	public String delete(HttpSession session) 
+	{
+		String id = (String)session.getAttribute("loginid");
+		memberService.deletemember(id);
+		
+		return "/";
+	}
+	
+	//order 호출
+	@GetMapping("/coffee/order")
+	public String order(Model model) 
+	{
+		List<DrinkDto> dlist = drinkService.dlist();
+		model.addAttribute("dlist",dlist);
+		
+		return "member/memberorder";
+	}
+	
+	//menu 호출
+	@GetMapping("/coffee/menu")
+	public String menu(Model model)
+	{
+		List<DrinkDto> dlist = drinkService.dlist();
+		model.addAttribute("dlist",dlist);
+		
+		return "member/membermenu";
+	}
+	
 	
 	
 }

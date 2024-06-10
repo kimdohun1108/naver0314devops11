@@ -33,10 +33,20 @@ span.aday{
 	color: gray;
 	font-size: 0.9em;
 }
+
+div.trans{
+	position: absolute;
+	top: 150px;
+	left: 550px;
+
+}
 </style>
 <c:set var="stpath" value="https://kr.object.ncloudstorage.com/bitcamp-bucket-56/photocommon"></c:set>
 <script type="text/javascript">
 	$(function(){
+		//처음 로딩시 content 번역
+		trans_content();
+		
 		//처음 로딩시 댓글 목록 출력
 		answer_list();
 		
@@ -80,7 +90,43 @@ span.aday{
 				  });
 			  }
 		   });
+		
+		//변역 언어 선택 이벤트 
+		$("#seltrans").change(function(){
+			trans_content();
+		});
 	});
+		
+	
+	//변역해서 가져오는 함수
+	function trans_content()
+	{
+		//변역할 문장
+		let text = `${dto.content}`;
+		console.log(text);
+		//변역할 언어코드
+		let lang = $("#seltrans").val();
+		console.log(text);
+		console.log(lang);
+		
+		$.ajax({
+			type:"post",
+			dataType:"text",
+			url:"./trans",
+			data:{"text":text,"lang":lang},
+			success:function(data){
+				console.log(data); //json형식의 문자열
+				console.log(typeof(data)); //String으로 출력됨
+				//String 타입을 json타입으로 변환
+				let m = JSON.parse(data);
+				console.log(typeof(m)); //object라고 나온다
+				//변역괸 text만 추출
+				let s = m.message.result.translatedText;
+				console.log(s);
+				$("#trans_Lang").html(s);
+			}
+		});
+	}
 	
 	function answer_list(){
 		let num = ${dto.num};
@@ -125,9 +171,22 @@ span.aday{
 			}
 		});
 	}
+	
 </script>
 </head>
 <body>
+	<div class="trans">
+		<div class="input-group">
+			<b>변역할 언어 선택</b>
+			<select id="seltrans" class="form-select" style="width: 130px; margin-left: 10px;">
+				<option value="en">영어</option>
+				<option value="ja">일본어</option>
+				<option value="zh-CN">중국어</option>
+				<option value="es">스페인어</option>
+			</select>
+		</div>
+		<pre id="trans_Lang" style="margin-top: 20px; font-size: 25px; white-space: pre-wrap; word-wrap: break-word; width: 400px;">111</pre>
+	</div>
 	<c:set var="root" value="<%=request.getContextPath()%>" />
 	<table>
 		<caption align="top">

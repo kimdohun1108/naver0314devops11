@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+3<%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>   
@@ -12,11 +12,6 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.0/font/bootstrap-icons.css">
 <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400..700&family=Dancing+Script:wght@400..700&family=East+Sea+Dokdo&family=Jua&family=Gaegu&family=Gamja+Flower&family=Pacifico&family=Single+Day&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-   <style>
-       body *{
-           font-family: 'Jua';
-       }
-   </style>
 </head>
 <script type="text/javascript">
 	let jungbok = false;
@@ -102,7 +97,7 @@
 	}
 </script>
 <body>
-	<form action="./insert" method="post" enctype="multipart/form-data" onsubmit="return check()">
+	<%-- <form action="./insert" method="post" enctype="multipart/form-data" onsubmit="return check()">
 		<table class="table table-bordered" style="width: 500px;">
 			<caption align="top">
 				<h3><b>회원 가입</b></h3>
@@ -153,6 +148,47 @@
 				</td>
 			</tr>
 		</table>
-	</form>
+	</form> --%>
+	<section class="signin">
+    <h1>회원가입</h1>
+      <div class="signin__card">
+        <h2>WOODO COFFEE에 오신 것을 환영합니다.</h2>
+        <form action="./insert" method="post" enctype="multipart/form-data" onsubmit="return check()">
+          <input type="text" placeholder="이름" class="nockeck" name="name" />
+          <div class="input-group">
+              <input type="email" placeholder="아이디(이메일)" class="recheck" name="id" id="id" />
+              <button type="button" id="btncheckid">중복확인</button>
+          </div>
+          <input type="password" placeholder="비밀번호" class="nockeck" name="passwd" />
+          <div class="input-group">
+              <input type="text" placeholder="닉네임" class="recheck" id="nick" name="nick" />
+              <button type="button" id="btnchecknick">중복확인</button>
+          </div>
+          <input type="tel" placeholder="전화번호" class="nockeck" name="hp"/>
+          <input type="submit" value="회원가입" />
+        </form>
+      </div>
+  </section>
+  
+  <!--FOOTER-->
+  <footer>
+    <div class="inner">
+
+      <ul class="menu">
+        <li><a href="javascript:void(0)" class="green">개인정보처리방침</a></li>
+        <li><a href="javascript:void(0)">홈페이지 이용약관</a></li>
+        <li><a href="javascript:void(0)">위치정보 이용약관</a></li>
+      </ul>
+
+      <p class="copyright">
+        &copy; <span class="this-year"></span> 2024 WOODO COFFEE. All Rights Reserved.
+      </p>
+
+    </div>
+  </footer>
+
+  <div id="to-top">
+    <div class="material-icons">arrow_upward</div>
+  </div>
 </body>
 </html>

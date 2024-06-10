@@ -29,16 +29,24 @@ public class MemberService {
 	{
 		return memInter.logincheck(id,passwd)==1?true:false;
 	}
-	public MemberDto getdate(int num)
-	{
-		return memInter.getdate(num);
-	}
 	public void updatemember(MemberDto dto)
 	{
 		memInter.updatemember(dto);
 	}
-	public MemberDto getdatabyid(String id)
+	public List<MemberDto> getdatabyid(String id)
 	{
 		return memInter.getdatabyid(id);
+	}
+	public int gettotalcount()
+	{
+		return memInter.gettotalcount();
+	}
+	public List<MemberDto> getallmember()
+	{
+		return memInter.getallmember();
+	}
+	public void deletemember(String id)
+	{
+		memInter.deletemember(id);
 	}
 }
